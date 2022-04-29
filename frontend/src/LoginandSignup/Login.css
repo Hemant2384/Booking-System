@@ -1,12 +1,5 @@
 .Login{
     /* position: absolute; */
-<<<<<<< HEAD
-    padding: 20px;
-    text-align: center;
-    height: 50vh;
-    margin-top: 80px;
-    font-family: sans-serif;
-=======
     width: 30%;
     max-width: 800px;
     height: 35vh;
@@ -17,7 +10,6 @@
     border-radius: 5px;
     justify-content: center;
     top: 80px;
->>>>>>> 606785d03e8183d23025fbb5c4ea686fa48a0eb1
 }
 .heading {
     text-align: center;
@@ -73,22 +65,10 @@
     margin-top: 20px;
     width: 460px;
     font-size: 1.4rem;
-<<<<<<< HEAD
     border-radius: 15px;
     color: white;
     background-color: #4b59f7;
 }
 .Login > form button:hover {
     font-size: 1.43rem;
-=======
-    border-radius: 10px;
-}
-.foot
-{
-
-    display: grid;
-
-    justify-content: center;
-
->>>>>>> 606785d03e8183d23025fbb5c4ea686fa48a0eb1
 }
