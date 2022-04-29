@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { UserContext } from '../App'
 import axios from 'axios'
 import books from '../books'
 import './Books.css'
@@ -7,6 +8,8 @@ import './Books.css'
 const Books = () => {
 
     const[days,setDays] = useState(0)
+    const { emailstate, emaildispatch } = useContext(UserContext);
+
     // const[books,setbooks] = useState([])
     // const[list,setList] = useState([])
     // useEffect(() => {
@@ -40,14 +43,12 @@ const Books = () => {
             <input className='inps' type="number" placeholder="Issue for (in days)" onChange={(e) => setDays(e.target.value)}/>
             <button onClick={handleclick}>Issue</button>
             </div> 
-            </div> 
+        </div>
         )
     })}
-    </div>
-    </div>
-    
-</div>
-  )
-}
+        </div> 
+         </div> 
+        </div>
+)}
 
 export default Books

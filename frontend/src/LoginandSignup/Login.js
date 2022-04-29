@@ -2,12 +2,13 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import { AppContext } from '../App'
+import { AppContext,UserContext } from '../App'
 import './Login.css'
 
 const Login = () => {
 
   const { state, dispatch } = useContext(AppContext);
+  const { emailstate, emaildispatch } = useContext(UserContext);
 
   // const[name,setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,6 +25,7 @@ const Login = () => {
     }).then((res) => {
       console.log(res.data);
       dispatch({type:"USER",payload:true})
+      emaildispatch({type:"EMAIL",payload:email})
     }
     ).catch((err) => {
       console.log(err);

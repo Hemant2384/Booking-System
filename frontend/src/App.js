@@ -11,7 +11,7 @@ import Books from './Books/Books';
 
 
 export const AppContext = createContext(false);
-
+export const UserContext = createContext("");
 
 const App = () => {
 
@@ -20,6 +20,7 @@ const App = () => {
   return (
     <>
     <AppContext.Provider value={{state,dispatch}}>
+    <UserContext.Provider value={{state,dispatch}}>
     <BrowserRouter>
     <Navbar/>
     <Routes>
@@ -30,6 +31,7 @@ const App = () => {
       <Route path="/books" element={<Books/>}/>
     </Routes>
     </BrowserRouter>
+    </UserContext.Provider>
     </AppContext.Provider>
     </>
   )
