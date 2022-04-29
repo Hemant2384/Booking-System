@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{createContext, useReducer} from 'react'
 import {BrowserRouter,Routes,Route} from 'react-router-dom' 
 import Home from './Home';
 import Navbar from './Navbar/Navbar';
@@ -6,13 +6,19 @@ import Login from './LoginandSignup/Login';
 // import {Switch} from 'react-router'
 import Signup from './LoginandSignup/Signup';
 import Profile from './Dashboard/Profile';
+import { initialState,reducer } from './reducer/UseReducer';
+
+
+export const AppContext = createContext(false);
 
 
 const App = () => {
-  localStorage.setItem('token', 0)
-  // localStorage.getItem('token')
+
+  const [state,dispatch] = useReducer(reducer,initialState)
+  console.log(state)
   return (
     <>
+    <AppContext.Provider value={{state,dispatch}}>
     <BrowserRouter>
     <Navbar/>
     <Routes>
@@ -22,6 +28,7 @@ const App = () => {
       <Route path="/profile" element={<Profile/>}/>
     </Routes>
     </BrowserRouter>
+    </AppContext.Provider>
     </>
   )
 }
