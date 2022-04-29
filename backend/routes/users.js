@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
         let encryptedPassword = await bcrypt.hash(password, 15);
 
         const user = await User.create({
-            email: email.toLowerCase(), // sanitize: convert username to lowercase
+            email: email.toLowerCase(), // sanitize: convert email to lowercase
             password: encryptedPassword,
         });
 
