@@ -1,0 +1,25 @@
+.main {
+    height: 5vh;
+    color: white;
+    padding-top: 10px;
+    margin-top: -7.5px;
+    font-size: 1.5rem;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.left-logo{
+    float: left;
+    width: 50%;
+}
+.nav-items{
+    display: flex;
+    float: right;
+    width: 10%;
+}
+.item {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 3em;
+    cursor: pointer;
+}
