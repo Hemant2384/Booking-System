@@ -9,14 +9,14 @@ const { authUser, authRole } = require('../basicAuth');
 router.post('/register', async (req, res) => {
     try {
         //Get the input
-        const { username, password ,role} = req.body;
+        const { email, password ,role} = req.body;
 
         //Validating the fields entered
-        if (!(username && password && role)) {
+        if (!(email && password && role)) {
             res.status(400).json({ message: "All inputs are required" });
         }
         //Checking if user already exists
-        const oldUser = await User.findOne({ username: username });
+        const oldUser = await User.findOne({ email: email });
         if (oldUser) {
             res.status(409).json({ message: "User is already registered" });
         }
@@ -24,12 +24,12 @@ router.post('/register', async (req, res) => {
         let encryptedPassword = await bcrypt.hash(password, 15);
 
         const user = await User.create({
-            username: username.toLowerCase(), // sanitize: convert username to lowercase
+            email: email.toLowerCase(), // sanitize: convert email to lowercase
             password: encryptedPassword,
         });
 
         const token = jwt.sign(
-            { user_id: user._id, username },
+            { user_id: user._id, email },
             process.env.TOKEN_KEY,
             {
                 expiresIn: 60 * 60 *60
@@ -53,19 +53,19 @@ router.post('/login', async (req, res) => {
     try {
         // Get user input
 
-        const { username, password,role} = req.body;
+        const { email, password,role} = req.body;
 
         // Validate user input
-        if (!(username && password && role)) {
+        if (!(email && password && role)) {
             res.status(400).json({ message: "All input is required" });
         }
 
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
 
         if (user && (await bcrypt.compare(password, user.password)) && role===user.role) {
             // Create token
             const token = jwt.sign(
-                { user_id: user._id, username },
+                { user_id: user._id, email },
                 process.env.TOKEN_KEY,
                 {
                     expiresIn: "2h",
@@ -92,7 +92,7 @@ router.get('/users',authUser,authRole('admin'),async (req,res)=>{
 })
 
 router.get('/admin',authUser,authRole('admin'),async (req,res)=>{
-    const curr_user = await User.findOne({username:req.body.username});
+    const curr_user = await User.findOne({email:req.body.email});
     res.send(curr_user)
 
 })
