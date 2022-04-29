@@ -1,22 +1,15 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-
+import { AppContext } from '../App';
 import './Navbar.css'
 
 const Navbar = () => {
+  const { state, dispatch } = useContext(AppContext);
 
-  const[token,setToken] = useState(0)
-
-  useEffect(() => {
-    setToken(localStorage.getItem('token')) 
-  },[])
-
-  
   const navigate = useNavigate();
   const handleclick = () => {
-    localStorage.setItem('token',0);
-    setToken(0);
+    dispatch({type:"USER",payload:false})
     navigate('/');
   }
 
@@ -30,16 +23,16 @@ const Navbar = () => {
         <div className="item" id='item-2'>Profile</div>
         <div className="item" id='item-3'><Link to="/books">Books</Link></div>
         <div className="item" id='item-4'>About</div>
-        {token == 0 ?
-           <> 
-           <Link to="/login"><button className="item" id='item-4'>Login</button></Link>
-           <Link to="/register"><button className="item" id='item-5'>Signup</button></Link>
-           </>
-           :
-           <>
-           <Link to="/"><button className="item" id='item-4' onClick={handleclick}>Logout</button></Link>
-           </>
-        }
+        {state==false ?
+          <>
+            <Link to="/login"><button className="item" id='item-4'>Login</button></Link>
+            <Link to="/register"><button className="item" id='item-5'>Signup</button></Link>
+          </>
+          :
+          <>
+            <Link to="/"><button className="item" id='item-4' onClick={handleclick}>Logout</button></Link>
+          </>
+        } 
       </div>
     </div>
   )

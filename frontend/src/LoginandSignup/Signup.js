@@ -1,50 +1,39 @@
-import React, { useState,useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useNavigate,Link } from 'react-router-dom';
 // const navigate = useNavigate();
 import axios from 'axios'
 import './Signup.css'
 
 const Signup = () => {
-  const[users,setUsers] = useState([])
-  // const[name,setName] = useState('');
-  const[email,setEmail] = useState('');
-  const[password,setPassword] = useState('')
-  const[role,setRole] = useState('admin')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('')
+  const [role, setRole] = useState('admin')
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/users').then((res) => {
-       setUsers(res.data);
-    })
- },[])
-   
-   const handleclick = (e) => {
-    if(!email){
+
+  const handleclick = (e) => {
+    if (!email) {
       alert("Please enter the email")
       return;
-   }
-   if(!password){
+    }
+    if (!password) {
       alert("Please enter the Password")
       return;
-   }
-   axios.post("http://localhost:5000/register",{
-    email,
-    password,
-    role,
-  }).then(res => {
-     setUsers([...users,{
+    }
+    axios.post("http://localhost:5000/register", {
       email,
       password,
-      role,            
-     }])
-  })
-    navigate('/login',{
-    state : {
-       email : email,
-       }
+      role,
+    }).then(res => {
+      console.log(res.data.message)
     })
-   }
+    navigate('/login', {
+      state: {
+        email: email,
+      }
+    })
+  }
 
   return (
     <div className='Signup'>
