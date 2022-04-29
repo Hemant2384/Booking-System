@@ -49,6 +49,7 @@ const navigate = useNavigate();
   return (
     <div className='Signup'>
     <div className="heading-1">SIGNUP</div>
+    <form>
     <label htmlFor="email">Email</label>
     <input type="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)}/>
     <label htmlFor="password">Password</label>
@@ -59,6 +60,7 @@ const navigate = useNavigate();
             <option value="basic">Basic</option>
     </select>
     <button onClick={handleclick}>Sign Up</button>
+    </form>
 </div>
   )
 }

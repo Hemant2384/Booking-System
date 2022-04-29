@@ -40,6 +40,7 @@ const Login = () => {
   return (
     <div className='Login'>
         <div className="heading">LOGIN</div>
+        <form>
         <label className='labels' htmlFor="email">Email</label>
         <input type="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)}/>
         <label className='labels' htmlFor="password">Password</label>
@@ -50,6 +51,7 @@ const Login = () => {
             <option value="basic">Basic</option>
         </select>
         <button onClick={handleclick}>Login</button>
+        </form>
     </div>
   )
 }

@@ -6,11 +6,11 @@ import './Navbar.css'
 
 const Navbar = () => {
 
-  // const[token,setToken] = useState(0)
+  const[token,setToken] = useState(0)
 
-  // useEffect(() => {
-  //   setToken(localStorage.getItem('token')) 
-  // },[])
+  useEffect(() => {
+    setToken(localStorage.getItem('token')) 
+  },[])
 
   
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Navbar = () => {
       <div className="nav-items">
         <div className="item" id='item-1'>Admin</div>
         <div className="item" id='item-2'>Profile</div>
-        <div className="item" id='item-3'>Books</div>
+        <div className="item" id='item-3'><Link to="/books">Books</Link></div>
         <div className="item" id='item-4'>About</div>
         {token == 0 ?
            <> 

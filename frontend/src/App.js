@@ -6,6 +6,7 @@ import Login from './LoginandSignup/Login';
 // import {Switch} from 'react-router'
 import Signup from './LoginandSignup/Signup';
 import Profile from './Dashboard/Profile';
+import Books from './Books/Books';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Signup/>}/>
       <Route path="/profile" element={<Profile/>}/>
+      <Route path="/books" element={<Books/>}/>
     </Routes>
     </BrowserRouter>
     </>

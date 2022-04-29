@@ -1,17 +1,10 @@
 .Signup{
     /* background-color:  #4b59f7; */
     /* color: white; */
-    width: 30%;
-    max-width: 800px;
+    padding: 20px;
+    text-align: center;
     height: 50vh;
-    padding-top: 20px;
-    padding-bottom: 35px;
-    margin: 130px auto;
-    display: grid;
-    border: 2px solid black;
-    border-radius: 5px;
-    justify-content: center;
-    top: 80px;
+    margin-top: 80px;
     font-family: sans-serif;
 }
 .heading-1{
@@ -19,26 +12,60 @@
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
-.Signup label {
-    font-size: 1.5rem;
-    /* padding-bottom: 4px; */
-    margin-bottom: 3px;
+.Signup > form {
+    background: white;
+    display: inline-block;
+    border-radius: 4px;
+    box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+    padding : 0 50px;
+    padding-top: 40px;
+    padding-bottom: 70px;
 }
-.Signup input {
-    margin-bottom: 15px;
-    width: 20em;
-    height: 2em;
+.Signup > form label {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: gray;
+    font-size: 1.65rem;
+}
+.Signup > form > input {
+    width: 400px;
+    padding: 16px 25px;
+    margin: auto;
+    display: block;
+    border: unset;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    outline-color: #4b59f7;
+    font-size: 14px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+.Signup > form select {
+    display: flex;
+    width: 460px;
+    height: 2.2em;
     font-size: 1.2rem;
-    border-radius: 10px;
+    border-radius: 5px;
+    color: gray;
 }
-.Signup input::placeholder{
-    padding-left: 10px;
-}
-.Signup button {
-    height: 2em;
-    margin-top: 15px;
+.Signup > form button {
+    height: 2.2em;
+    margin-top: 20px;
+    width: 460px;
     font-size: 1.4rem;
-    border-radius: 10px;
-    background-color:  #4b59f7;
+    border-radius: 15px;
     color: white;
+    background-color: #4b59f7;
+    /* transform: perspective(500px) translateZ(-50px); */
+}
+.Signup > form > button:hover {
+    cursor: pointer;
+    transform: perspective(500px)  translateZ(5px);
 }
