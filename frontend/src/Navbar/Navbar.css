@@ -1,12 +1,17 @@
 .main {
     height: 5vh;
-    color: rgb(0, 66, 108);
+    color: white;
+    background-color: #101522;
     padding-top: 10px;
     margin-top: -7.5px;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     /* background-color: rgb(255, 255, 255); */
+}
+.ss{
+    text-decoration: none;
+    color: white;
 }
 .left-logo{
     float: left;
@@ -22,4 +27,20 @@
     margin-right: 10px;
     width: 3em;
     cursor: pointer;
+}
+#item-45{
+    color: white;
+    background-color: #4b59f7;
+    font-size: 1.2rem;
+    width: 90px;
+    height: 35px;
+    border-radius: 10px;
+}
+#item-5 {
+    color: white;
+    background-color: #4b59f7;
+    font-size: 1.25rem;
+    width: 120px;
+    height: 35px;
+    border-radius: 10px;
 }

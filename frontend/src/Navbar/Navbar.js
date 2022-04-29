@@ -21,16 +21,16 @@ const Navbar = () => {
       <div className="nav-items">
         <div className="item" id='item-1'>Admin</div>
         <div className="item" id='item-2'>Profile</div>
-        <div className="item" id='item-3'><Link to="/books">Books</Link></div>
+        <Link className='ss' to="/books"><div className="item" id='item-3'>Books</div></Link>
         <div className="item" id='item-4'>About</div>
         {state==false ?
           <>
-            <Link to="/login"><button className="item" id='item-4'>Login</button></Link>
+            <Link to="/login"><button className="item" id='item-45'>Login</button></Link>
             <Link to="/register"><button className="item" id='item-5'>Signup</button></Link>
           </>
           :
           <>
-            <Link to="/"><button className="item" id='item-4' onClick={handleclick}>Logout</button></Link>
+            <Link to="/"><button className="item" id='item-46' onClick={handleclick}>Logout</button></Link>
           </>
         } 
       </div>

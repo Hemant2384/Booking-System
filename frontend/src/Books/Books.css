@@ -1,0 +1,133 @@
+.mainn{
+    background-color: #101522;
+    animation: fadeImg 0.5s;
+}
+::selection {
+    background: #4b59f7;
+}
+@keyframes fadeImg {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+.myservices {
+    display: flex;
+    justify-content: center;
+    padding: 27px 299px;
+
+}
+.main_displayy{
+    display: grid;
+}
+.main-heading {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+}
+.main-heading > p {
+    font-size: 20px;
+}
+.service_data {
+    display: flex;
+    justify-content: center;
+}
+.services_data > img {
+    /* color: #4b59f7; */
+    height: 200px;
+    width: 180px;
+    /* display: flex; */
+    margin-left: 55px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.card_component {
+    justify-content: center;
+    padding: 20px 20px;
+    width: 320px;
+    height: 600px;
+    background-color: white;
+    border-radius : 10px;
+    transform: perspective(500px) translateZ(-30px);
+    transition: transform 0.5s;
+}
+.card_component:hover {
+    cursor: pointer;
+    transform: perspective(500px)  translateZ(30px);
+}
+.contents {
+    display: grid;
+    grid-template-columns: repeat(5, calc(20% - 12.667px));
+    min-height: 950px;
+    grid-gap: 19px;
+}
+
+.service_name {
+    font-size: 25px;
+    padding-bottom: 10px;
+    color:#101522;
+}
+.card_content {
+    color: gray;
+    font-size: 18px;
+}
+.inps {
+    margin-top: 15px;
+    width: 290px;
+    height: 40px;  
+}
+.card_component > button {
+    width: 300px;
+    height: 50px;
+    margin-top: 15px;
+    font-size: 15px;
+    display: block;
+    border: unset;
+    border-radius: 4px;
+      background-color: #4b59f7;
+      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                  rgb(84, 105, 212) 0px 0px 0px 1px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                  rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      /* margin-bottom: 20px; */
+}
+@media (max-width:1210px) {
+    .contents{
+        grid-template-columns: repeat(2, calc(50% - 12.6667px));
+        min-height: 350px;
+        grid-gap: 19px;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+    .card_component {
+        width: 350px;
+        height: 400px;
+    }
+}
+@media (max-width:810px) {
+    .contents{
+        grid-template-columns: repeat(1, calc(100% - 12.6667px));
+        min-height: 350px;
+        grid-gap: 19px;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+    .card_component {
+        width: 350px;
+        height: 400px;
+    }
+    .myservices {
+        padding: 24px 45px;
+    }
+}
