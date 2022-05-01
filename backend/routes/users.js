@@ -85,13 +85,13 @@ router.post('/login', async (req, res) => {
     }
 });
 
-//authUser,authRole('admin'),
-router.get('/users',authUser,authRole('admin'),async (req,res)=>{
+// authUser,authRole('admin')
+
+router.post('/users',authUser,authRole('admin'),async (req,res)=>{
     try{
         const users = await User.find();
         res.send(users)
     }
-    
     catch (err) {
         console.log(err);
     }

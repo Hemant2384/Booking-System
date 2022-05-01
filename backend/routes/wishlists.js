@@ -9,10 +9,11 @@ const { route } = require('./users');
 //wishlist array for an email
 router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
     try {
-        const wishlist_arr = await Wishlist.find({
+        const wishlist_arr = await Wishlist.findOne({
             email: req.body.email//need to be edited
-        }).wlist;
-        res.send(wishlist_arr);
+        });
+        console.log(wishlist_arr.wlist);
+        res.send(wishlist_arr.wlist);
     }
     catch (err) {
         console.log(err)

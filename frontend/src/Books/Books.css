@@ -52,13 +52,13 @@
     height: 600px;
     background-color: white;
     border-radius : 10px;
-    transform: perspective(500px) translateZ(-30px);
-    transition: transform 0.5s;
+    /* transform: perspective(500px) translateZ(-30px);
+    transition: transform 0.5s; */
 }
-.card_component:hover {
+/* .card_component:hover {
     cursor: pointer;
     transform: perspective(500px)  translateZ(30px);
-}
+} */
 .contents {
     display: grid;
     grid-template-columns: repeat(5, calc(20% - 12.667px));

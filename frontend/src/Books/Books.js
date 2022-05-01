@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext, useCallback } from 'react'
 import { UserContext } from '../App'
 import axios from 'axios'
 import books from '../books'
@@ -7,12 +7,34 @@ import './Books.css'
 
 const Books = () => {
 
-  const [days, setDays] = useState(0)
-  const { emailstate, emaildispatch } = useContext(UserContext);
+    const[days,setDays] = useState(0)
+    // const[book_id,setBookid] = useState(books)
+    const { emailstate, emaildispatch } = useContext(UserContext);
 
-  const handleclick = () => {
-    // console.log("book issued");
-  }
+    // const[books,setbooks] = useState([])
+    // const[list,setList] = useState([])
+    // useEffect(() => {
+    //     axios.get('https://www.googleapis.com/books/v1/volumes?q=search-terms&key=AIzaSyBCD3AP3MqXwvQ0uo5UC4x5Lf42nuUep-s')
+    //     .then(response => {setbooks(response.data.items)})
+    // },[])
+
+    const onchangee = useCallback((e) => {
+      setDays(e.target.value)
+    },[])
+
+    const handlewishlist = useCallback((id) => {
+      console.log(id);
+      axios.post(`http://localhost:5000/wishlist/${id}`,{
+        email : emailstate,
+        wlist : {
+          bid : id
+        } 
+      }).then(res => {
+        console.log(res.data)
+        alert('Books added to wishlisht');
+      })
+    },[])
+
   return (
     <div className="mainn">
       <div className="main-heading">
@@ -32,9 +54,9 @@ const Books = () => {
                   <div className="card_content">
                     {book.desc}
                   </div>
-                  <button>Add to Wishlist +</button>
-                  <input className='inps' type="number" placeholder="Issue for (in days)" onChange={(e) => setDays(e.target.value)} />
-                  <button onClick={handleclick}>Issue</button>
+                  <button onClick={() => handlewishlist(book.bid)}>Add to Wishlist +</button>
+                  <input className='inps' type="number" placeholder="Issue for (in days)" onChange={onchangee} />
+                  <button >Issue</button>
                 </div>
               </div>
             )

@@ -10,7 +10,6 @@ function authRole(role) {
         if (req.body.role !== role) {
             res.status(401).json({message:"Not allowed"});
         }
-
         next()
     }
 }

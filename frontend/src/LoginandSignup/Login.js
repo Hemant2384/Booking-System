@@ -30,6 +30,7 @@ const Login = () => {
     ).catch((err) => {
       console.log(err);
     })
+    console.log(emailstate);
     navigate('/profile', {
       state: {
         role: role,
