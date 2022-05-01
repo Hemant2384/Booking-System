@@ -6,7 +6,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
         "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
         "rent": 10,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 2,
@@ -15,7 +15,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/Malgudi-Days-RK-Narayan.jpg",
         "desc" : "Malgudi Days is a collection of short stories by R.K. Narayan published in 1943.The book includes 32 stories, all set in the fictional town of Malgudi, located in South India. Each of the stories portrays a facet of life in Malgudi.",
         "rent": 100,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 3,
@@ -24,7 +24,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Private-Life-of-an-Indian-Prince-Mulk-Raj-Anand.jpg",
         "desc" : "The Private Life of an Indian Prince is a novel by Mulk Raj Anand first published in 1953. This book deals with the abolition of the princely states system in India.",
         "rent": 200,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 4,
@@ -33,7 +33,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/Untouchable-Mulk-Raj-Anand.jpg",
         "desc" : "Untouchable was inspired by Anand’s aunt’s experience when she had a meal with a Muslim woman and was treated as an outcast by his family.The plot of this book revolves around the argument for eradicating the caste system.",
         "rent": 300,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 5,
@@ -42,7 +42,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/Train-to-Pakistan-Khushwant-Singh.jpeg",
         "desc" : "Train to Pakistan recounts the Partition of India in August 1947.Instead of depicting the Partition in terms of only the political events surrounding it, Singh digs into a deep local focus, providing a human dimension which brings to the event a, and believability.",
         "rent": 350,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 6,
@@ -51,7 +51,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-God-of-Small-Things-by-Arundhati-Roy.jpg",
         "desc" : "The God of Small Things by Arundhati Roy is a story about the childhood experiences of fraternal twins Esthappen and Rahel, whose lives are destroyed by the “Love Laws” that are laid down by the society.",
         "rent": 2250,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 7,
@@ -60,7 +60,7 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-White-Tiger-by-Aravind-Adiga.jpg",
         "desc" : "The White Tiger provides a darkly humorous perspective of India’s class struggle in a globalized world. The novel has been well-received, making the New York Times bestseller list in addition to winning the Man Booker Prize.",
         "rent": 250,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 8,
@@ -69,16 +69,16 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/Sea-of-Poppies-by-Amitav-Ghosh.jpg",
         "desc" : "At the heart of the story of Sea of Poppies is a vast ship, the Ibis.Her destiny is a tumultuous voyage across the Indian Ocean shortly before the outbreak of the Opium Wars in China and onboard are a diverse cast of characters.",
         "rent": 450,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 9,
-        "bname" : "THE GUIDE",
-        "author" : "",
+        "bname" : "HELLO BYE",
+        "author" : "Chetan Bhagat",
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
+        "desc" : "HELLO BYE is a 1958 novel written in English by the Indian author Chetan Bhagat. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
         "rent": 460,
-        "isIssued" : "false"
+        "isIssued" : false
     },
     {
         "bid" : 10,
@@ -87,96 +87,5 @@
         "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/A-Suitable-Boy-by-Vikram-Seth.jpg",
         "desc" : "A Suitable Boy by Vikram Seth is set in a newly post-independence, post-partition India.The novel follows the story of four families over a period of 18 months, and centres on Mrs Rupa Mehra's efforts to arrange the marriage of her younger daughter, Lata, to a “suitable boy”.",
         "rent": 475,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 11,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 375,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 12,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 275,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 13,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 265,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 14,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 245,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 15,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 295,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 16,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 245,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 17,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 235,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 18,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 225,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 19,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 215,
-        "isIssued" : "false"
-    },
-    {
-        "bid" : 20,
-        "bname" : "THE GUIDE",
-        "author" : "",
-        "url" : "https://www.bookgeeks.in/wp-content/uploads/2018/01/The-Guide-RK-Narayan.jpg",
-        "desc" : "The Guide is a 1958 novel written in English by the Indian author R. K. Narayan. Like most of his works, the novel is based on Malgudi, the fictional town in South India.",
-        "rent": 225,
-        "isIssued" : "false"
-    }
-]
+        "isIssued" : false
+    }]

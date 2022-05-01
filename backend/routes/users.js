@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../model/user');
+const Issue = require('../model/issue');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { authUser, authRole } = require('../basicAuth');
@@ -86,9 +87,14 @@ router.post('/login', async (req, res) => {
 
 // authUser,authRole('admin')
 
-router.get('/users',async (req,res)=>{
-    const users = await User.find();
-    res.send(users)
+router.post('/users',authUser,authRole('admin'),async (req,res)=>{
+    try{
+        const users = await User.find();
+        res.send(users)
+    }
+    catch (err) {
+        console.log(err);
+    }
 
 })
 

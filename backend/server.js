@@ -4,7 +4,7 @@ const cors=require('cors');
 const mongoose=require('mongoose');
 const bodyParser=require('body-parser');
 const userRoutes=require('./routes/users');
-// const bookRoutes=require('./routes/books');
+const bookRoutes=require('./routes/books');
 const wishlistRoutes=require('./routes/wishlists');
 require('dotenv').config();
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', userRoutes);
-// app.use('/', bookRoutes);
+app.use('/', bookRoutes);
 app.use('/', wishlistRoutes);
 const PORT=process.env.PORT || 5000;
 app.listen(PORT, () => {

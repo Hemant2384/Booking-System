@@ -9,10 +9,11 @@ const { route } = require('./users');
 //wishlist array for an email
 router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
     try {
-        const wishlist_arr = await Wishlist.find({
+        const wishlist_arr = await Wishlist.findOne({
             email: req.body.email//need to be edited
         });
-        res.send(wishlist_arr);
+        console.log(wishlist_arr.wlist);
+        res.send(wishlist_arr.wlist);
     }
     catch (err) {
         console.log(err)
@@ -20,17 +21,13 @@ router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
 });
 
 //add book to wishlist
-router.post('/wishlist/:id', authUser, authRole('basic'), async (req, res) => {
+router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
     try {
-        await Wishlist.findOneAndUpdate({
-            email: req.body.email//need to be edited
-        },
-            {
-                $addToSet: {
-                    wlist: req.params.id
-                }
-            }
-        )
+        const query = { email: req.body.email};
+        const update = { $push: {  wlist:{bid:Number(req.params.id) }}};
+        const options = { upsert: true };
+        await Wishlist.updateOne(query, update, options);
+        res.json({"message":"Added"})
     }
     catch (err) {
         console.log(err)
@@ -38,12 +35,14 @@ router.post('/wishlist/:id', authUser, authRole('basic'), async (req, res) => {
 });
 
 //remove from wishlist
-router.delete('/wishlist/remove/:id', authUser, authRole('basic'), async (req, res) => {
+//authUser, authRole('basic')
+router.delete('/wishlist/remove/:id',  async (req, res) => {
     try {
-        await collection.update(
+        await Wishlist.updateOne(
             { email: req.body.email },
-            { $pull: { wlist: { book_id: req.params.id } } }
+            { $pull: { wlist: { bid: Number(req.params.id)} } }
         );
+        res.json({"message":"Deleted from wishlist"})
 
     }
     catch (err) {
@@ -51,4 +50,4 @@ router.delete('/wishlist/remove/:id', authUser, authRole('basic'), async (req, r
     }
 });
 
-module.exports = router;
+module.exports = router; 

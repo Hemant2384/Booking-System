@@ -28,9 +28,10 @@ const Profile = () => {
     <div className="item align-items-center top-50 " style={{ marginLeft: "45%" }}></div>
     </>:
     <>
+    {location.search.role}
     {location.state.role === "admin"? 
-    <Admin/>:
-    <User/>}
+    <Admin role={location.state.role}/>:
+    <User email={location.state.email}/>}
     </>
   }
   </>
