@@ -1,35 +1,98 @@
 .admin-main {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
+    margin-top: 70px;
+    font-family: 'Open Sans', sans-serif;
 }
-.add_books{
-    margin-right: 20px;
-    width: 150px;
-    height: 150px;
+.admin-head {
+    /* display: flex; */
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 4rem;
+    color: #32325d;
 }
-.btn{
+.btn1 {
+    margin-bottom: 40px;
+    margin-left: 20px;
+    /* width: 10rem;
+    height: 3rem; */
+    background-size: 300% 300%;
+    font-size: 1.25rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background-image: linear-gradient(to right, #895cf2 0%, #ffabf4 50%, #895cf2 100%);
+    transition: 0.5s;
+    padding: 1em 3em;
+    border-radius: 6px;
+    font-weight: 600;
+}
+.btn1:hover {
+    background-position: right center;
+}
+ 
+.mycontents {
+    display: grid;
+    grid-template-columns: repeat(3, auto); 
+    margin-left: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 25px;
+    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+    padding: 40px 40px;
+}
+.cell label {
+    display: block;
+    font-size: 1.5rem;
+    padding-right: 10px;
+}
+.cell input {
+    width: 35em;
+    height: 5em;
+    border-radius: 5px;
+}
+.cell input::placeholder {
     font-size: 1.25rem;
 }
-.view-users{
-    margin-left: 20px;
-    width: 40px;
-    height: 40px;
+.subbtn {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    /* margin-left: 20px; */
+    background-size: 300% 300%;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 1em 3em;
+    border-radius: 6px;
+    font-weight: 600;
+    background-image: repeating-linear-gradient(-45deg, 
+      #7BDFF2 10px 30px,
+      #B2F7EF 30px 50px,
+      #EFF7F6 50px 70px,
+      #F7D6E0 70px 90px,
+      #F2B5D4 90px 110px
+  );
+  color: black;
 }
-.newbook {
+.subbtn:hover {
+    background-position: 20% center;
+  } 
+.views-users {
     display: grid;
-    justify-content: center;
-}
-.newbook input {
-    width: 25em;
-    height: 5em;
-}
-.newbook button {
+    grid-template-columns: repeat(3, auto); 
+    margin-left: 80px;
     margin-top: 20px;
-    width: 25em;
-    height: 4em;
+    margin-bottom: 20px;
+    gap: 25px;
 }
 .userslist {
-    display: grid;
-    justify-content: center;
+
+}
+.indusers {
+    border: 3px solid #4b59f7;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    height: 5em;
+    padding-left: 10px;
+    padding-top: 10px;
 }

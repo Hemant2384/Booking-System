@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Admin.css'
 import axios from 'axios'
 
-const Admin = ({role}) => {
+const Admin = ({role,email}) => {
 
     // useEffect(() => {
         
@@ -46,44 +46,62 @@ const Admin = ({role}) => {
              alert('Book added')
         })
     }
+    const handlesub = (e) => {
+        e.preventDefault();
+    }
 
   return (
     <div className="admin-main">
+        <span className='admin-head' >Admin {email}</span>
         <div className="add_books">
-            <button onClick={handlenewbook} className='btn'>Add new book</button>
-        </div>
+            <button onClick={handlenewbook} className='btn1'>Add new book</button>
         {add && 
-        <form className='newbook'>
+        <form className='newbook' onSubmit={handlesub}>
+        <div className='mycontents'>
+        <div className="cell">
         <label className='labelss' htmlFor="text">Book Name</label>
         <input type="text" placeholder='Enter the Book Name' onChange={(e) => setBname(e.target.value)}/>
+        </div>
+        <div className="cell">
         <label className='labelss' htmlFor="text">Book Id</label>
         <input type="number" placeholder='Enter the Book Id' onChange={(e) => setBid(e.target.value)}/>
+        </div>
+        <div className="cell">
         <label className='labelss' htmlFor="text">Book Author</label>
         <input type="text" placeholder='Enter the Book Author' onChange={(e) => setAuthor(e.target.value)}/>
+        </div>
+        <div className="cell">
         <label className='labelss' htmlFor="url">Book Image Url</label>
         <input type="url" placeholder='Enter the Book Iamge url' onChange={(e) => setUrl(e.target.value)}/>
+        </div>
+        <div className="cell">
         <label className='labelss' htmlFor="text">Book Description</label>
         <input type="text" placeholder='Enter the Book Description' onChange={(e) => setDesc(e.target.value)}/>
+        </div>
+        <div className="cell">
         <label className='labelss' htmlFor="text">Book Rent</label>
         <input type="number" placeholder='Enter the Book Rent' onChange={(e) => setRent(e.target.value)}/>
+        </div>
         {/* <label className='labelss' htmlFor="text">Book issued</label>
         <input type="text" placeholder='Enter the Book isIssued' onChange={(e) => setIsissued(e.target.value)}/> */}
-        <button type="submit" onClick={handlebook}>Add book</button>
+        </div>
+        <button type="submit" className='subbtn' onClick={handlebook}>Add book</button>
         </form>
         }
+         </div>
+            <button className='btn1' onClick={handleview}>View users</button>
         <div className="views-users">
-            <button className='btn' onClick={handleview}>View users</button>
-        </div>
         {
             view &&         
-            <div className='userslist'>
-            {
+               <>
+                {
                 users.map((user) => (
-                    <span className='indusers'>{user.email} {user.role}</span>
-                ))
-            }
-        </div>
+                    <div className='indusers'>{user.email} {user.role}</div>
+                    ))
+                }
+                </>
         }
+    </div>
     </div>
   )
 }

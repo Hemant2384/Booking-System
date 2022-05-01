@@ -30,7 +30,7 @@ const Profile = () => {
     <>
     {location.search.role}
     {location.state.role === "admin"? 
-    <Admin role={location.state.role}/>:
+    <Admin role={location.state.role} email={location.state.email}/>:
     <User email={location.state.email}/>}
     </>
   }

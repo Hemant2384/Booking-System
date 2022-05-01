@@ -22,8 +22,8 @@ const Navbar = () => {
         Library XYZ
       </div>
       <div className="nav-items">
-        <div className="item" id='item-1'>Admin</div>
-        {state && <div className="item" id='item-2'>{emailstate}</div>}
+        <div className="item" id='item-1'>Gallery</div>
+        {state && <Link className='ss' to='/profile'><div className="item" id='item-2'>{emailstate}</div></Link>}
         <Link className='ss' to="/books"><div className="item" id='item-3'>Books</div></Link>
         <div className="item" id='item-4'>About</div>
         {state==false ?
