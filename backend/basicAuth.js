@@ -2,7 +2,6 @@ function authUser(req, res, next) {
     if (req.body == null) {
         res.status(403).json({message:"You need to sign in"});
     }
-
     next()
 }
 

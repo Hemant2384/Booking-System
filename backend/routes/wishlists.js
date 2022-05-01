@@ -23,7 +23,7 @@ router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
 router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
     try {
         const query = { email: req.body.email};
-        const update = { $push: {  wlist:{bid:Number(req.params.id) }}};
+        const update = { $push: {  wlist:{bid:(req.params.id) }}};
         const options = { upsert: true };
         await Wishlist.updateOne(query, update, options);
         res.json({"message":"Added"})
