@@ -1,51 +1,73 @@
 const express = require('express');
 const router = express.Router();
 const Issue = require('../model/issue');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const { authUser, authRole } = require('../basicAuth');
-const { route } = require('./users');
-
 //get all issues for all emails
-route.get('/issue', authUser, authRole('basic'), async (req, res) => {
+
+//authUser, authRole('basic'),
+router.get('/issues', async (req, res) => {
     try {
-        const issues = await Wishlist.find();
+        const issues = await Issue.find();
         res.send(issues);
     }
     catch (err) {
         console.log(err)
     }
-});
+})
 
-//get all issues for an email
-route.post('/issue', authUser, authRole('basic'), async (req, res) => {
+//GET all issues for a particular email
+//authUser, authRole('basic'),
+router.post('/issue', async (req, res) => {
     try {
-        const issues = await Issue.find({
+        const issue_obj = await Issue.findOne({
             email: req.body.email//need to be edited
         });
-        res.send(issues);
+        console.log(issue_obj.issue_details_list);
+        res.send(issue_obj.issue_details_list);
     }
     catch (err) {
         console.log(err)
     }
 });
 
-//issue a book
-route.post('/issue/:id', authUser, authRole('basic'), async (req, res) => {
+//ISSUE a book
+//authUser, authRole('basic'),
+router.post('/issue/:id', async (req, res) => {
+
     try {
-        await Wishlist.findOneAndUpdate({
-            email: req.body.email
-        },
+        var today = new Date();
+        var date = (today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()).toString();
+        const detail = {
+            bid: Number(req.params.id),
+            doi: date,
+            period: req.body.period,
+            amount: req.body.amount
+        }
+        const query = { email: req.body.email };
+        const update = { $push: { issue_details_list: detail } };
+        const options = { upsert: true };
+        await Issue.updateOne(query, update, options);
+        res.json({ "message": "Issued" })
+    }
+    catch (err) {
+        console.log(err)
+    }
+});
+
+//RETURN the book
+router.post('/issue/remove/:id', async (req, res) => {
+    try {
+        
+        await Issue.updateOne(
+            { email: req.body.email },
+            { $pull: { issue_details_list: { bid: Number(req.params.id) } } },
             {
-                $addToSet: {
-                    book_id: req.params.id,
-                    doi: (new Date()).toLocaleString().slice(0,9),
-                    period: req.body.period,
-                    amount: req.body.amount,
-                }
+                upsert:false,
+                multi:true
             }
-        )
-        res.send({message:"Success"});
+        );
+        res.json({ "message": "Book returned." })
+
     }
     catch (err) {
         console.log(err)
