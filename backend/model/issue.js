@@ -1,7 +1,7 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 
-const userSchema=new Schema({
+const issueSchema=new Schema({
     email: { type: String, unique: true },
     issue_details:[{
         book_id: {type: String,unique:true},
@@ -12,4 +12,4 @@ const userSchema=new Schema({
     ]
 });
 
-module.exports = mongoose.model("issue", userSchema);
+module.exports = mongoose.model("issue", issueSchema);
