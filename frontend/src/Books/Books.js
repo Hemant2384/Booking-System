@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext, useCallback } from 'react'
 import { UserContext } from '../App'
 import axios from 'axios'
 import books from '../books'
@@ -8,6 +8,7 @@ import './Books.css'
 const Books = () => {
 
     const[days,setDays] = useState(0)
+    // const[book_id,setBookid] = useState(books)
     const { emailstate, emaildispatch } = useContext(UserContext);
 
     // const[books,setbooks] = useState([])
@@ -17,9 +18,23 @@ const Books = () => {
     //     .then(response => {setbooks(response.data.items)})
     // },[])
 
-    const handleclick = () => {
-        // console.log("book issued");
-    }
+    const onchangee = useCallback((e) => {
+      setDays(e.target.value)
+    },[])
+
+    const handlewishlist = useCallback((id) => {
+      alert('Books added to wishlisht');
+      // console.log(id);
+      axios.post('http://localhost:5000/wishlist',{
+        email : emailstate,
+        wlist : {
+          book_id : id
+        } 
+      }).then(res => {
+        console.log(res.data)
+      })
+    },[])
+
   return (
     <div className="mainn">
        <div className="main-heading">
@@ -34,14 +49,14 @@ const Books = () => {
                  <div className="services_data">
                    <img className='images' src={`${book.url}`}/>
                  </div>
-            <div className="service_name">{book.name}</div>
+            <div className="service_name">{book.bname}</div>
             <div className="author">{book.author}</div>
             <div className="card_content">
                 {book.desc}
             </div>
-            <button>Add to Wishlist +</button>
-            <input className='inps' type="number" placeholder="Issue for (in days)" onChange={(e) => setDays(e.target.value)}/>
-            <button onClick={handleclick}>Issue</button>
+            <button onClick={() => {handlewishlist(book.bid);}}>Add to Wishlist +</button>
+            <input className='inps' type="number" placeholder="Issue for (in days)" onChange={onchangee}/>
+            <button>Issue</button>
             </div> 
         </div>
         )

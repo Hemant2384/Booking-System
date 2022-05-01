@@ -23,12 +23,20 @@
     /* width: 10%; */
 }
 .item {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
     width: 3em;
     cursor: pointer;
 }
 #item-45{
+    color: white;
+    background-color: #4b59f7;
+    font-size: 1.2rem;
+    width: 90px;
+    height: 35px;
+    border-radius: 10px;
+}
+#item-46{
     color: white;
     background-color: #4b59f7;
     font-size: 1.2rem;

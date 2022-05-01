@@ -84,8 +84,9 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// authUser,authRole('admin')
 
-router.get('/users',authUser,authRole('admin'),async (req,res)=>{
+router.get('/users',async (req,res)=>{
     const users = await User.find();
     res.send(users)
 

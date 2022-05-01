@@ -6,12 +6,12 @@ const jwt = require('jsonwebtoken');
 const { authUser, authRole } = require('../basicAuth');
 const { route } = require('./users');
 
-
-route.post('/wishlist', authUser, authRole('basic'), async (req, res) => {
+//wishlist array for an email
+router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
     try {
         const wishlist_arr = await Wishlist.find({
             email: req.body.email//need to be edited
-        }).wlist;
+        });
         res.send(wishlist_arr);
     }
     catch (err) {
@@ -19,14 +19,15 @@ route.post('/wishlist', authUser, authRole('basic'), async (req, res) => {
     }
 });
 
-route.post('/wishlist/:id', authUser, authRole('basic'), async (req, res) => {
+//add book to wishlist
+router.post('/wishlist/:id', authUser, authRole('basic'), async (req, res) => {
     try {
         await Wishlist.findOneAndUpdate({
             email: req.body.email//need to be edited
         },
             {
                 $addToSet: {
-                    wlist: id
+                    wlist: req.params.id
                 }
             }
         )
@@ -36,11 +37,12 @@ route.post('/wishlist/:id', authUser, authRole('basic'), async (req, res) => {
     }
 });
 
-route.post('/wishlist/remove/:id', authUser, authRole('basic'), async (req, res) => {
+//remove from wishlist
+router.delete('/wishlist/remove/:id', authUser, authRole('basic'), async (req, res) => {
     try {
         await collection.update(
             { email: req.body.email },
-            { $pull: { wlist: { book_id: id } } }
+            { $pull: { wlist: { book_id: req.params.id } } }
         );
 
     }
@@ -48,3 +50,5 @@ route.post('/wishlist/remove/:id', authUser, authRole('basic'), async (req, res)
         console.log(err)
     }
 });
+
+module.exports = router;

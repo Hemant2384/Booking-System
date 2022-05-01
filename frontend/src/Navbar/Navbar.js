@@ -1,11 +1,14 @@
 import React, { useEffect, useState,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import { AppContext } from '../App';
+import {useLocation} from 'react-router-dom';
+import { AppContext,UserContext } from '../App';
 import './Navbar.css'
 
 const Navbar = () => {
   const { state, dispatch } = useContext(AppContext);
+  const { emailstate, emaildispatch } = useContext(UserContext);
+
 
   const navigate = useNavigate();
   const handleclick = () => {
@@ -20,7 +23,7 @@ const Navbar = () => {
       </div>
       <div className="nav-items">
         <div className="item" id='item-1'>Admin</div>
-        <div className="item" id='item-2'>Profile</div>
+        {state && <div className="item" id='item-2'>{emailstate}</div>}
         <Link className='ss' to="/books"><div className="item" id='item-3'>Books</div></Link>
         <div className="item" id='item-4'>About</div>
         {state==false ?

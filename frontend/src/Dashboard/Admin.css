@@ -1,0 +1,35 @@
+.admin-main {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.add_books{
+    margin-right: 20px;
+    width: 150px;
+    height: 150px;
+}
+.btn{
+    font-size: 1.25rem;
+}
+.view-users{
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+}
+.newbook {
+    display: grid;
+    justify-content: center;
+}
+.newbook input {
+    width: 25em;
+    height: 5em;
+}
+.newbook button {
+    margin-top: 20px;
+    width: 25em;
+    height: 4em;
+}
+.userslist {
+    display: grid;
+    justify-content: center;
+}
