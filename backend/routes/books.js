@@ -17,7 +17,7 @@ router.get('/books', async (req, res) => {
 
 router.get('/book/:id', async (req, res) => {
     try {
-        const book = await Book.find({bid:req.params.id});
+        const book = await Book.find({bid:Number(req.params.id)});
         res.send(book);
     }
     catch (err) {

@@ -5,6 +5,7 @@ const mongoose=require('mongoose');
 const bodyParser=require('body-parser');
 const userRoutes=require('./routes/users');
 const bookRoutes=require('./routes/books');
+const issueRoutes=require('./routes/issues');
 const wishlistRoutes=require('./routes/wishlists');
 require('dotenv').config();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/', userRoutes);
 app.use('/', bookRoutes);
 app.use('/', wishlistRoutes);
+app.use('/', issueRoutes);
 const PORT=process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server started on the port ${PORT}`);

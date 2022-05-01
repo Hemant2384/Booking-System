@@ -3,11 +3,11 @@ const Schema=mongoose.Schema;
 
 const issueSchema=new Schema({
     email: { type: String, unique: true },
-    issue_details:[{
-        book_id: {type: String,unique:true},
-        doi: {type: Date,unique:true},
-        period: {type: Number ,unique:true},
-        amount: {type: Number,unique:true},
+    issue_details_list:[{
+        bid: {type: Number,unique:true},
+        doi: {type: String},
+        period: {type: Number },
+        amount: {type: Number},
         }
     ]
 });

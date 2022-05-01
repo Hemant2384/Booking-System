@@ -1,19 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const Wishlist = require('../model/wishlist');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const { authUser, authRole } = require('../basicAuth');
-const { route } = require('./users');
 
 //wishlist array for an email
 router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
     try {
-        const wishlist_arr = await Wishlist.findOne({
+        const wishlist_obj = await Wishlist.findOne({
             email: req.body.email//need to be edited
         });
-        console.log(wishlist_arr.wlist);
-        res.send(wishlist_arr.wlist);
+        console.log(wishlist_obj.wlist);
+        res.send(wishlist_obj.wlist);
     }
     catch (err) {
         console.log(err)
