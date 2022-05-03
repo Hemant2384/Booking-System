@@ -7,6 +7,8 @@ const userRoutes=require('./routes/users');
 const bookRoutes=require('./routes/books');
 const issueRoutes=require('./routes/issues');
 const wishlistRoutes=require('./routes/wishlists');
+const activityRoutes=require('./routes/activities');
+const { createIndexes } = require('./model/wishlist');
 require('dotenv').config();
 
 
@@ -14,11 +16,12 @@ app.use(cors());
 app.use(express.json());
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true},{createIndexes:true}));
 app.use('/', userRoutes);
 app.use('/', bookRoutes);
 app.use('/', wishlistRoutes);
 app.use('/', issueRoutes);
+app.use('/', activityRoutes);
 const PORT=process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server started on the port ${PORT}`);

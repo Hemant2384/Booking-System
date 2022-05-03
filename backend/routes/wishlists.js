@@ -24,7 +24,17 @@ router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
         const update = { $push: {  wlist:{bid:(req.params.id) }}};
         const options = { upsert: true };
         await Wishlist.updateOne(query, update, options);
-        res.json({"message":"Added"})
+        // res.json({"message":"Added"})
+    }
+    catch (err) {
+        console.log(err)
+    }
+    try {
+        const wishlist_obj = await Wishlist.findOne({
+            email: req.body.email//need to be edited
+        });
+        console.log(wishlist_obj.wlist);
+        res.send(wishlist_obj.wlist);
     }
     catch (err) {
         console.log(err)
