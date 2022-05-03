@@ -1,5 +1,5 @@
 import React, { useEffect, useState,useContext, useCallback } from 'react'
-import { IssueContext, UserContext, WishContext } from '../App'
+import { IssueContext, UserContext, WishContext,RoleContext } from '../App'
 import {BiSearch} from 'react-icons/bi'
 import ReactLoading from 'react-loading';
 import axios from 'axios'
@@ -14,6 +14,7 @@ const Books = () => {
     // const[word,setWord] = useState('Enter the book name')
     const { wishstate, wishdispatch } = useContext(WishContext);
     const { issuestate, issuedispatch } = useContext(IssueContext);
+    const { rolestate, roledispatch } = useContext(RoleContext);
     const[filtereddata,setFiltereddata] = useState([]);
     const[days,setDays] = useState(1)
     const [load, setload] = useState(false)
@@ -27,6 +28,7 @@ const Books = () => {
     useEffect(() => {
       axios.post('http://localhost:5000/wishlist',{
         email:emailstate,
+        role:rolestate
       }).then((res) => wishdispatch({type:"WISH",payload:res.data}))
 }, []);
 
@@ -55,6 +57,7 @@ const Books = () => {
     }
       axios.post(`http://localhost:5000/wishlist/${id}`,{
         email : emailstate,
+        role:rolestate,
         wlist : {
           bid : id
         } 
@@ -85,6 +88,7 @@ const Books = () => {
     }
       axios.post(`http://localhost:5000/issue/${id}`,{
         email : emailstate,
+        role:rolestate,
         period : days,
         amount : days*rent
       }).then(res => {
@@ -95,6 +99,7 @@ const Books = () => {
 
       axios.post('http://localhost:5000/activity',{
         email : emailstate,
+        role:rolestate,
         bid : id,
         bname : name
       }).then((res) => {

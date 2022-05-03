@@ -32,7 +32,7 @@ router.post('/issue', async (req, res) => {
 
 //ISSUE a book
 //authUser, authRole('basic'),
-router.post('/issue/:id', async (req, res) => {
+router.post('/issue/:id',authUser, authRole('basic'), async (req, res) => {
 
     try {
         var today = new Date();
@@ -65,7 +65,7 @@ router.post('/issue/:id', async (req, res) => {
 });
 
 //RETURN the book
-router.post('/issue/remove/:id', async (req, res) => {
+router.post('/issue/remove/:id',authUser, authRole('basic'), async (req, res) => {
     try {
         
         await Issue.updateOne(
