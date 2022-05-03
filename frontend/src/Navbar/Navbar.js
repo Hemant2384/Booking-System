@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import {useLocation} from 'react-router-dom';
 import { AppContext,UserContext } from '../App';
+import {HiOutlineLibrary} from 'react-icons/hi'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -19,12 +20,12 @@ const Navbar = () => {
   return (
     <div className='main'>
       <div className="left-logo">
-        Library XYZ
+        National Library <HiOutlineLibrary/>
       </div>
       <div className="nav-items">
-        <div className="item" id='item-1'>Admin</div>
-        {state && <div className="item" id='item-2'>{emailstate}</div>}
-        <Link className='ss' to="/books"><div className="item" id='item-3'>Books</div></Link>
+        <div className="item" id='item-1'>Recent</div>
+        {state && <Link className='ss' to='/profile'><div className="item" id='item-2'>{emailstate}</div></Link>}
+       <div className="item" id='item-3'> <Link className='ss' to="/books">Books</Link></div>
         <div className="item" id='item-4'>About</div>
         {state==false ?
           <>

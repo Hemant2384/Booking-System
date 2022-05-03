@@ -25,6 +25,8 @@ router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
         const options = { upsert: true };
         await Wishlist.updateOne(query, update, options);
         // res.json({"message":"Added"})
+        // const wishlist_obj = await Wishlist.find();
+        // res.send(wishlist_obj.wlist) 
     }
     catch (err) {
         console.log(err)
@@ -33,8 +35,8 @@ router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
         const wishlist_obj = await Wishlist.findOne({
             email: req.body.email//need to be edited
         });
-        console.log(wishlist_obj.wlist);
-        res.send(wishlist_obj.wlist);
+        console.log(wishlist_obj.wlist[wishlist_obj.wlist.length-1]);
+        res.send(wishlist_obj.wlist[wishlist_obj.wlist.length-1]);
     }
     catch (err) {
         console.log(err)
@@ -43,18 +45,27 @@ router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
 
 //remove from wishlist
 //authUser, authRole('basic')
-router.delete('/wishlist/remove/:id',  async (req, res) => {
+router.post('/wishlist/remove/:id',  async (req, res) => {
     try {
         await Wishlist.updateOne(
             { email: req.body.email },
             { $pull: { wlist: { bid: Number(req.params.id)} } }
         );
         res.json({"message":"Deleted from wishlist"})
-
     }
     catch (err) {
         console.log(err)
     }
+    // try {
+    //     const wishlist_obj = await Wishlist.findOne({
+    //         email: req.body.email//need to be edited
+    //     });
+    //     console.log(wishlist_obj.wlist);
+    //     res.send(wishlist_obj.wlist);
+    // }
+    // catch (err) {
+    //     console.log(err)
+    // }
 });
 
 module.exports = router; 
