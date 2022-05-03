@@ -47,7 +47,17 @@ router.post('/issue/:id', async (req, res) => {
         const update = { $push: { issue_details_list: detail } };
         const options = { upsert: true };
         await Issue.updateOne(query, update, options);
-        res.json({ "message": "Issued" })
+        // res.json({ "message": "Issued" })
+    }
+    catch (err) {
+        console.log(err)
+    }
+    try {
+        const issue_obj = await Issue.findOne({
+            email: req.body.email//need to be edited
+        });
+        console.log(issue_obj.issue_details_list[issue_obj.issue_details_list.length-1]);
+        res.send(issue_obj.issue_details_list[issue_obj.issue_details_list.length-1]);
     }
     catch (err) {
         console.log(err)

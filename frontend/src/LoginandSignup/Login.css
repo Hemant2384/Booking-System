@@ -25,7 +25,7 @@
     padding-top: 40px;
     padding-bottom: 70px;
 }
-.Login > form > input {
+.Login > form input {
     /* margin-top: 2px; */
     width: 400px;
     padding: 16px 25px;
@@ -52,6 +52,13 @@
     color: gray;
     font-size: 1.65rem;
 }
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* appearance: none;  */
+    /* width: 2em; */
+    /* background-image: url("https://img.icons8.com/ios/344/down-squared--v2.png"); */
+ }
 .Login > form select {
     display: flex;
     width: 460px;
@@ -59,17 +66,20 @@
     font-size: 1.2rem;
     border-radius: 5px;
     color: gray;
+    padding-left: 5px;
 }
 .Login > form button {
     height: 2.2em;
     margin-top: 20px;
     width: 460px;
     font-size: 1.4rem;
-    border-radius: 15px;
+    border: none;
+    border-radius: 5px;
     color: white;
     background-color: #4b59f7;
     cursor: pointer;
 }
 .Login > form button:hover {
-    font-size: 1.43rem;
+    font-size: 1.41rem;
+    background-color: #0467FB;
 }

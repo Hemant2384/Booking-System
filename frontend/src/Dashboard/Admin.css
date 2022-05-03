@@ -1,6 +1,5 @@
 .admin-main {
     margin-top: 70px;
-    font-family: 'Open Sans', sans-serif;
 }
 .admin-head {
     /* display: flex; */
@@ -44,14 +43,18 @@
     display: block;
     font-size: 1.5rem;
     padding-right: 10px;
+    margin-bottom: 7px;
 }
 .cell input {
     width: 35em;
     height: 5em;
     border-radius: 5px;
+    padding-left: 5px;
+    border: unset;
+    border: 2px solid gray;
 }
 .cell input::placeholder {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
 }
 .subbtn {
     display: block;
@@ -85,9 +88,9 @@
     margin-bottom: 20px;
     gap: 25px;
 }
-.userslist {
+/* .userslist {
 
-}
+} */
 .indusers {
     border: 3px solid #4b59f7;
     font-size: 1.5rem;
@@ -95,4 +98,10 @@
     height: 5em;
     padding-left: 10px;
     padding-top: 10px;
+}
+.btn-23{
+    float: right;
+    width: 10em;
+    height: 4em;
+    margin-right: 10px;
 }

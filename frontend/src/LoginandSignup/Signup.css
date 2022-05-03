@@ -60,12 +60,12 @@
     margin-top: 20px;
     width: 460px;
     font-size: 1.4rem;
-    border-radius: 15px;
+    border-radius: 5px;
     color: white;
     background-color: #4b59f7;
     /* transform: perspective(500px) translateZ(-50px); */
 }
 .Signup > form > button:hover {
-    cursor: pointer;
-    transform: perspective(500px)  translateZ(5px);
+    font-size: 1.41rem;
+    background-color: #0467FB;
 }

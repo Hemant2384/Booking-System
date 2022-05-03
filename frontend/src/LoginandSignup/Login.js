@@ -2,13 +2,14 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
-import { AppContext,UserContext } from '../App'
+import { AppContext,RoleContext,UserContext } from '../App'
 import './Login.css'
 
 const Login = () => {
 
   const { state, dispatch } = useContext(AppContext);
   const { emailstate, emaildispatch } = useContext(UserContext);
+  const { rolestate, roledispatch } = useContext(RoleContext);
 
   // const[name,setName] = useState('');
   const [email, setEmail] = useState('');
@@ -26,11 +27,12 @@ const Login = () => {
       console.log(res.data);
       dispatch({type:"USER",payload:true})
       emaildispatch({type:"EMAIL",payload:email})
+      roledispatch({type:"ROLE",payload:role})
     }
     ).catch((err) => {
       console.log(err);
     })
-    console.log(emailstate);
+    // console.log(emailstate);
     navigate('/profile', {
       state: {
         role: role,
@@ -39,11 +41,15 @@ const Login = () => {
     })
   }
 
+  const handlesubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <>
       <div className='Login'>
         <div className="heading">LOGIN</div>
-        <form>
+        <form onSubmit={handlesubmit}>
         <label className='labels' htmlFor="email">Email</label>
         <input type="email" placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)} />
         <label className='labels' htmlFor="password">Password</label>

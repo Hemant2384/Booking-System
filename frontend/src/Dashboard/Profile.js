@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useContext} from 'react'
 import {useLocation} from 'react-router-dom';
 import ReactLoading from 'react-loading';
-import { AppContext,UserContext } from '../App';
+import { AppContext,RoleContext,UserContext } from '../App';
 import './Profile.css'
 import User from './User';
 import Admin from './Admin';
@@ -9,6 +9,7 @@ import Admin from './Admin';
 const Profile = () => {
   // const { state, dispatch } = useContext(AppContext);
   const { emailstate, emaildispatch } = useContext(UserContext);
+  const { rolestate, roledispatch } = useContext(RoleContext);
   const [load, setload] = useState(false)
   const handleclick = () => {
     console.log(emailstate);
@@ -16,9 +17,9 @@ const Profile = () => {
   useEffect(() => {
     setTimeout(() => {
         setload(true)
-    }, 7000)
+    }, 2000)
 }, [])
-   const location = useLocation();
+  //  const location = useLocation();
   return (
        <>
      {
@@ -28,10 +29,10 @@ const Profile = () => {
     <div className="item align-items-center top-50 " style={{ marginLeft: "45%" }}></div>
     </>:
     <>
-    {location.search.role}
-    {location.state.role === "admin"? 
-    <Admin role={location.state.role} email={location.state.email}/>:
-    <User email={location.state.email}/>}
+    {rolestate}
+    {rolestate=== "admin"? 
+    <Admin role={rolestate} email={emailstate}/>:
+    <User email={emailstate}/>}
     </>
   }
   </>

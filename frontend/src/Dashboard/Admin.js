@@ -7,8 +7,9 @@ const Admin = ({role,email}) => {
     // useEffect(() => {
         
     // },[])
-
+    const[books,setBooks] = useState([])
     const[view,setView]=useState(false)
+    // const[vieww,setVieww]=useState(false)
     const[users,setUsers] = useState([])
     const[add,setAdd] = useState(false)
     const[bid,setBid] = useState(0);
@@ -23,14 +24,14 @@ const Admin = ({role,email}) => {
     }
     const handleview = () => {
         // e.preventDefault();
+        setView(!view)
         axios.post("http://localhost:5000/users",{
             role
         }).then((res) =>{
-            // console.log(res.data)
+            console.log(res.data)
             setUsers(res.data)
         })
-        console.log(users)
-        setView(!view)
+        // console.log(users)
     }
     const handlebook = (e) => {
         e.preventDefault();
@@ -45,7 +46,13 @@ const Admin = ({role,email}) => {
         }).then((res) => {
              alert('Book added')
         })
+        setBname("");
+        setAuthor("");
+        setUrl("");
+        setDesc("");
     }
+
+
     const handlesub = (e) => {
         e.preventDefault();
     }
@@ -95,8 +102,12 @@ const Admin = ({role,email}) => {
             view &&         
                <>
                 {
-                users.map((user) => (
-                    <div className='indusers'>{user.email} {user.role}</div>
+                users.map((user,index) => (
+                    <>
+                    <div className='indusers'>{user.email} {user.role}
+                    <button className='btn-23' key={index}>View issues</button>
+                    </div>
+                    </>
                     ))
                 }
                 </>
