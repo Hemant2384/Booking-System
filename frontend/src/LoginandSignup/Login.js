@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import { AppContext,RoleContext,UserContext } from '../App'
 import './Login.css'
 
@@ -12,13 +13,20 @@ const Login = () => {
   const { rolestate, roledispatch } = useContext(RoleContext);
 
   // const[name,setName] = useState('');
+  // const[loading,setLoading]
   const [email, setEmail] = useState('');
+  const [load, setload] = useState(false)
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('admin')
   const navigate = useNavigate();
   // localStorage.getItem('token')
 
+//   useEffect(() => {
+
+// }, [])
+
   const handleclick = (e) => {
+    setload(true)
     axios.post("http://localhost:5000/login", {
       email,
       password,
@@ -28,17 +36,21 @@ const Login = () => {
       dispatch({type:"USER",payload:true})
       emaildispatch({type:"EMAIL",payload:email})
       roledispatch({type:"ROLE",payload:role})
+      navigate('/profile', {
+        state: {
+          role: role,
+          email: email,
+        }
+      })
     }
     ).catch((err) => {
-      console.log(err);
+      alert('User not found')
+       console.log(err);
     })
+    setTimeout(() => {
+      setload(false)
+  }, 6000)
     // console.log(emailstate);
-    navigate('/profile', {
-      state: {
-        role: role,
-        email: email,
-      }
-    })
   }
 
   const handlesubmit = (e) => {
@@ -46,7 +58,15 @@ const Login = () => {
   }
 
   return (
-    <>
+    <>     
+    {
+      load ?
+      <>
+      <ReactLoading className='loader' type={'spinningBubbles'} color="#FFC107"/>
+    <div className="item align-items-center top-50 " style={{ marginLeft: "45%" }}></div>
+      </>
+      :
+      <>
       <div className='Login'>
         <div className="heading">LOGIN</div>
         <form onSubmit={handlesubmit}>
@@ -63,6 +83,8 @@ const Login = () => {
         </form>
     </div>
     </>
+}
+</>
   )
 }
 

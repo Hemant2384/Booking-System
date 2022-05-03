@@ -37,6 +37,31 @@
     display: flex;
     justify-content: center;
 }
+.seach-book {
+    /* margin: 0 auto; */
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+}
+.seach-book input {
+    width: 50em;
+    height: 3em;
+    font-size: 1.25rem;
+    padding-bottom: -10px;
+    outline: none;
+}
+.icon-1 {
+    color: #101522;
+    /* font-size: 2rem; */
+    background-color: white;
+    /* padding-top: 10px; */
+    /* padding-bottom: -210px; */
+    width: 3.5em;
+    height: 3.95em;
+    margin-top: 1px;
+    /* padding-top: 10px; */
+    cursor: pointer;
+}
 .contents {
     display: grid;
     grid-template-columns: repeat(4, calc(25% - 12.667px));
@@ -157,4 +182,7 @@ input[type=number] {
     .myservices {
         padding: 24px 45px;
     }
+}
+.data_item{
+    color: white;
 }
