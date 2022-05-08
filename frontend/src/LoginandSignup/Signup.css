@@ -3,9 +3,10 @@
     /* color: white; */
     padding: 20px;
     text-align: center;
-    height: 50vh;
+    height: 75vh;
     margin-top: 80px;
     font-family: sans-serif;
+    margin-bottom: 8em;
 }
 .heading-1{
     text-align: center;
@@ -24,9 +25,9 @@
 .Signup > form label {
     display: flex;
     margin-top: 10px;
-    margin-bottom: 10px;
-    color: gray;
-    font-size: 1.65rem;
+    margin-bottom: 5px;
+    /* color: gray; */
+    font-size: 1.35rem;
 }
 .Signup > form > input {
     width: 400px;
@@ -37,7 +38,7 @@
     margin-bottom: 20px;
     border-radius: 4px;
     outline-color: #4b59f7;
-    font-size: 14px;
+    font-size: 1.4rem;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
@@ -54,6 +55,7 @@
     font-size: 1.2rem;
     border-radius: 5px;
     color: gray;
+    padding-left: 5px;
 }
 .Signup > form button {
     height: 2.2em;
@@ -62,10 +64,91 @@
     font-size: 1.4rem;
     border-radius: 5px;
     color: white;
-    background-color: #4b59f7;
+    border: none;
+    background-color: #1D1A54;
     /* transform: perspective(500px) translateZ(-50px); */
+    margin-bottom: 9px;
 }
 .Signup > form > button:hover {
     font-size: 1.41rem;
-    background-color: #0467FB;
+    background-color: #4b59f7;
+}
+.small {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.small a {
+    text-decoration: none;
+    color: #0467FB;
+}
+
+
+@media screen and (max-width:407px) {
+    .Signup > form {
+        width: 14em;
+    }
+
+    .Signup > form > input {
+        width: 175px;
+        font-size: 0.8rem;
+    }   
+    .Signup > form label {
+        font-size: 1.15rem;
+    }
+    .Signup > form select {
+        width: 229px ;
+    }
+    .Signup > form button {
+        width: 229px ;
+    }
+    .small {
+        font-size: 0.8rem;
+        /* font-weight: 600; */
+    }
+}
+@media screen and ((max-width:408px) and (min-width:460px)) {
+    .Signup > form {
+        width: 17em;
+    }
+
+    .Signup > form > input {
+        width: 223px;
+        font-size: 1rem;
+    }   
+    .Signup > form label {
+        font-size: 1.15rem;
+    }
+    .Signup > form select {
+        width: 273px ;
+    }
+    .Signup > form button {
+        width: 273px ;
+    }
+    .small {
+        font-size: 1rem;
+        /* font-weight: 600; */
+    }
+}
+@media screen and ((min-width:464px) and (max-width:570px)) {
+
+    .Signup > form {
+        width: 22em;
+    }
+
+    .Signup > form > input {
+        width: 298px;
+    }   
+    .Signup > form label {
+        font-size: 1.15rem;
+    }
+    .Signup > form select {
+        width: 349px ;
+    }
+    .Signup > form button {
+        width: 349px ;
+    }
+    .small {
+        font-size: 1rem;
+        /* font-weight: 600; */
+    }
 }

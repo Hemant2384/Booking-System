@@ -8,6 +8,9 @@ const issueSchema=new Schema({
         doi: {type: String},
         period: {type: Number },
         amount: {type: Number},
+        bname : {type : String},
+        author : {type : String},
+        url : {type : String}
         }
     ]
 });

@@ -1,10 +1,16 @@
+
+/* 363062
+E9D5DA */
+/* font-family: 'Roboto Mono', monospace; */
 .mainn{
-    background-color: #101522;
+    /* background-color: #101522;
+     */
+     background: #FAF3FC;
     animation: fadeImg 0.5s;
 }
-::selection {
+/* ::selection {
     background: #4b59f7;
-}
+} */
 @keyframes fadeImg {
     from {
       opacity: 0;
@@ -29,8 +35,10 @@
     font-size: 40px;
     color: #fff;
     margin-bottom: 20px;
+    color: #1D1A54;
 }
 .main-heading > p {
+    color: #1D1A54;
     font-size: 20px;
 }
 .service_data {
@@ -42,6 +50,7 @@
     /* text-align: center; */
     display: flex;
     justify-content: center;
+    margin-bottom: 50px;
 }
 .seach-book input {
     width: 50em;
@@ -50,6 +59,13 @@
     padding-bottom: -10px;
     outline: none;
 }
+.Heart-icon {
+    margin-left: 10px;
+}
+.Heart-logo {
+    width: 2.5em;
+    height: 2.5em;
+}
 .icon-1 {
     color: #101522;
     /* font-size: 2rem; */
@@ -57,10 +73,12 @@
     /* padding-top: 10px; */
     /* padding-bottom: -210px; */
     width: 3.5em;
-    height: 3.95em;
-    margin-top: 1px;
+    height: 3.7em;
+    margin-top: 0.4px;
     /* padding-top: 10px; */
     cursor: pointer;
+    box-shadow: 0 4px 7px 0 #1D1A54, 0 4px 8px 0 #1D1A54;
+    border-radius: 10px;
 }
 .contents {
     display: grid;
@@ -73,16 +91,21 @@
     justify-content: center;
     padding: 20px 20px;
     width: 350px;
-    height: 630px;
-    background-color: white;
+    height: 580px;
+    background-color: #28264C;
+    color: white;
     border-radius : 10px;
+    /* box-shadow: #1D1A54 10px 10px 10px 10px ; */
+    box-shadow: 0 4px 7px 0 #1D1A54, 0 4px 8px 0 #1D1A54;
     /* transform: perspective(500px) translateZ(-30px); */
-    transition: transform 0.5s;
+    /* transition: transform 0.5s; */
+    transition: 0.3s all ease-in-out;
 }
 .card_component:hover {
     /* cursor: pointer; */
-    transform: perspective(500px)  translateZ(40px);
-    border: 5px solid #0467FB;
+    /* transform: perspective(500px)  translateZ(40px);
+    border: 5px solid #0467FB; */
+    margin-top:-15px;
 }
 .author {
     margin-left: 20px;
@@ -92,7 +115,7 @@
     margin-left: 20px;
     font-size: 25px;
     padding-bottom: 10px;
-    color:#101522;
+    /* color:#101522; */
 }
 .services_data {
     display: flex;
@@ -107,13 +130,27 @@
     margin-bottom: 20px;
 }
 .card_content {
-    color: gray;
+    /* color: gray; */
     margin-left: 20px;
     font-size: 18px;
+}
+.card-icon {
+    float: right;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+}
+.inp-1{
+    padding-left: 10px;
+    border: none;
+    box-shadow: 0 4px 7px 0 #1D1A54, 0 4px 8px 0 #1D1A54;
+    border-radius: 10px;
 }
 .inps {
     margin-top: 15px;
     width: 290px;
+    text-align: center;
+    font-size: 1.2rem;
     height: 40px;  
     margin-left: 20px;
 }
@@ -127,7 +164,7 @@
     display: block;
     border: unset;
     border-radius: 4px;
-      background-color: #4b59f7;
+      background-color: #D4C1EC;
       box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
@@ -154,7 +191,23 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
   }
-@media (max-width:1210px) {
+@media (max-width:1810px) {
+    .contents{
+        grid-template-columns: repeat(3, calc(33.33% - 12.6667px));
+        min-height: 350px;
+        grid-gap: 19px;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+    .card_component {
+        width: 350px;
+        height: 670px;
+    }
+    .seach-book input {
+        width: 45em;
+    }
+}
+@media (max-width:1240px) {
     .contents{
         grid-template-columns: repeat(2, calc(50% - 12.6667px));
         min-height: 350px;
@@ -164,10 +217,13 @@ input[type=number] {
     }
     .card_component {
         width: 350px;
-        height: 400px;
+        height: 670px;
+    }
+    .seach-book input {
+        width: 40em;
     }
 }
-@media (max-width:810px) {
+@media (max-width:928px) {
     .contents{
         grid-template-columns: repeat(1, calc(100% - 12.6667px));
         min-height: 350px;
@@ -177,10 +233,13 @@ input[type=number] {
     }
     .card_component {
         width: 350px;
-        height: 400px;
+        height: 670px;
     }
     .myservices {
         padding: 24px 45px;
+    }
+    .seach-book input {
+        width: 30em;
     }
 }
 .data_item{

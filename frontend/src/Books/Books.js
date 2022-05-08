@@ -1,8 +1,18 @@
 import React, { useEffect, useState,useContext, useCallback } from 'react'
-import { IssueContext, UserContext, WishContext } from '../App'
-import {BiSearch} from 'react-icons/bi'
+import { IContext, IssueContext, TotalIssueContext, TotalWishContext, UserContext, WContext, WishContext } from '../App'
+import {BiSearch,BiBookAdd,BiBookHeart} from 'react-icons/bi'
+import {AiFillHeart,AiOutlineHeart} from 'react-icons/ai'
 import ReactLoading from 'react-loading';
 import axios from 'axios'
+// import { Tooltip } from '@mui/material'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+import Fade from '@mui/material/Fade';
+import Zoom from '@mui/material/Zoom';
+import { styled } from '@mui/material/styles';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Reveal from 'react-reveal/Reveal';
+import Flip from 'react-reveal/Flip';
 // import books from '../books'
 import './Books.css'
 
@@ -12,10 +22,15 @@ const Books = () => {
     const[reload,setReload] = useState(false)
     const[value,setValue] = useState('');
     // const[word,setWord] = useState('Enter the book name')
+    const[iswishlist,setIswishlist] = useState([])
     const { wishstate, wishdispatch } = useContext(WishContext);
+    const { totalwishstate, totalwishdispatch } = useContext(TotalWishContext);
+    const { totalissuestate, totalissuedispatch } = useContext(TotalIssueContext);
+    const { wstate, wdispatch } = useContext(WContext);
+    const { istate, idispatch } = useContext(IContext);
     const { issuestate, issuedispatch } = useContext(IssueContext);
     const[filtereddata,setFiltereddata] = useState([]);
-    const[days,setDays] = useState(1)
+    const[days,setDays] = useState(0)
     const [load, setload] = useState(false)
     const[books,setBooks] = useState([])
 
@@ -27,8 +42,13 @@ const Books = () => {
     useEffect(() => {
       axios.post('http://localhost:5000/wishlist',{
         email:emailstate,
-      }).then((res) => wishdispatch({type:"WISH",payload:res.data}))
-}, []);
+      }).then((res) => totalwishdispatch({type:"WISHLIST",payload:res.data}))
+   }, []); 
+    useEffect(() => {
+      axios.post('http://localhost:5000/issue',{
+        email:emailstate,
+      }).then((res) => totalissuedispatch({type:"ISSUES",payload:res.data}))
+   }, []); 
 
     useEffect(() => {
       setTimeout(() => {
@@ -36,48 +56,87 @@ const Books = () => {
       }, 1000)
   }, [])
 
-    const handlewishlist = (id) => {
-      console.log(wishstate)
+  const message = (text) =>   toast.success(text, {
+    position: "top-right",
+    autoClose: 5000,
+    newestOnTop : false,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable : true,
+    hideProgressBar : false,
+    progress: undefined,
+    theme : 'light'
+    });
+  // const notifypresent = () => toast("Book already present in wishlist")
+  // const notifyissue = (days) => toast(`Book Issued for ${days} days`)
+  // const alreadyissued = () => toast("Book already Issued")
+
+    const handlewishlist = (id,name,author,url) => {
+      console.log(totalwishstate)
       setReload(!reload)
-      if(wishstate!=undefined){
-      if(wishstate.length!=0){
-        const checkpres = wishstate.find(item => 
-          item.bid == id
+      if(totalwishstate!=undefined){
+      if(totalwishstate.length!=0){
+        const checkpres = totalwishstate.find(item => 
+          item.bid === id
         )
         console.log(checkpres);
         if(checkpres!=undefined){
           if(checkpres.bid==id) {
-            alert('Book already present in wishlist')
+            // alert('Book already present in wishlist')
+            message('Book already present in wishlist')
+            // console.log('Book already present in wishlist')
             return;
           }
         }
       }
     }
+    console.log(id);
+    console.log(name);
       axios.post(`http://localhost:5000/wishlist/${id}`,{
         email : emailstate,
         wlist : {
-          bid : id
-        } 
-      }).then(res => {
+          bname : name,
+          author : author,
+          url : url
+        }
+      }).then((res) => {
         // setList(res.data)
         console.log(res.data)
         wishdispatch({type:"WISH",payload:res.data})
-        alert('Books added to wishlisht');
+        // wdispatch({type:"USERW",payload:res.data})
+        message('Books added to wishlisht');
+        // notifyadded();
+      })
+
+      books.find(item => {
+        if(item.bid === id){
+        wdispatch({type:"USERW",payload:item})
+        }
       })
     }
 
-    const handleissue  = (id,rent,name) => {
-      console.log(issuestate)
+
+
+    const handleissue  = (id,rent,name,author,url) => {
+      if(days === 0){
+        message('Please enter the time period of issue')
+        return;
+      }
+
+      console.log(totalissuestate)
       setReload(!reload)
-      if(issuestate!=undefined){
-      if(issuestate.length!=0){
-        const checkpres = issuestate.find(item => 
+      if(totalissuestate!=undefined){
+      if(totalissuestate.length!=0){
+        const checkpres = totalissuestate.find(item => 
           item.bid == id
         )
         console.log(checkpres);
         if(checkpres!=undefined){
           if(checkpres.bid==id) {
-            alert('Book already Issued')
+            setDays(0);
+            message('Book already Issued')
+            // alreadyissued();
             return;
           }
         }
@@ -86,13 +145,25 @@ const Books = () => {
       axios.post(`http://localhost:5000/issue/${id}`,{
         email : emailstate,
         period : days,
-        amount : days*rent
+        amount : days*rent,
+        bname : name,
+        author : author,
+        url : url
       }).then(res => {
         // console.log(res.data);
         issuedispatch({type:"ISSUE",payload:res.data})
-        alert(`Book Issued for ${days} days`)
+        totalissuedispatch({type:"ISSUES",payload:issuestate})
+        message(`Book Issued for ${days} days`)
+        // notifyissue(days)
       })
 
+      setDays('0');
+
+      books.find(item => {
+        if(item.bid === id){
+        idispatch({type:"USERI",payload:item})
+        }
+      })
       axios.post('http://localhost:5000/activity',{
         email : emailstate,
         bid : id,
@@ -100,7 +171,6 @@ const Books = () => {
       }).then((res) => {
         console.log("Added to recent")
       })
-
     }
 
     const handlesearch = (e) => {
@@ -152,9 +222,11 @@ const Books = () => {
                               <div className="card_content">
                                 {book.desc}
                               </div>
-                              <button onClick={() => handlewishlist(book.bid)}>Add to Wishlist +</button>
+                              <button onClick={() => handlewishlist(book.bid,book.bname,book.author,book.url)}>Add to Wishlist+ </button>
                               <input className='inps' type="number" placeholder="Issue for (in days)" onChange={(e) => setDays(e.target.value)} />
-                              <button  onClick={() => handleissue(book.bid,book.rent,book.bname)} >Issue</button>
+                              <Tooltip title="Issue book" TransitionComponent={Fade}>
+                                <button  onClick={() => handleissue(book.bid,book.rent,book.bname,book.author,book.url)}><BiBookAdd/></button>
+                              </Tooltip>
                             </div>
                           </div>
                         )
@@ -165,12 +237,14 @@ const Books = () => {
                 </> :
                 <>
                   <div className="myservices">
+                <Reveal effect="fadeInUp">
                     <div className="contents">
                 {
                     books.map((book,index) => {
                         return (
                           <div className="main_displayy" key={index}>
                             <div className="card_component">
+                              <BiBookHeart className='card-icon' onClick={() => handlewishlist(book.bid,book.bname,book.author,book.url)}/>  
                               <div className="services_data">
                                 <img className='images' src={`${book.url}`} />
                               </div>
@@ -179,41 +253,23 @@ const Books = () => {
                               <div className="card_content">
                                 {book.desc}
                               </div>
-                              <button onClick={() => handlewishlist(book.bid)}>Add to Wishlist +</button>
                               <input className='inps' type="number" placeholder="Issue for (in days)" onChange={(e) => setDays(e.target.value)} />
-                              <button  onClick={() => handleissue(book.bid,book.rent,book.bname)} >Issue</button>
+                              <Tooltip
+                               title="Issue book"
+                               TransitionComponent={Zoom}
+                               >
+                              <button  onClick={() => handleissue(book.bid,book.rent,book.bname,book.author,book.url)}><BiBookAdd/></button>
+                              </Tooltip>
                             </div>
                           </div>
                         )
                     })
-                }
+                  }
                 </div>
+          </Reveal>
                 </div>
                 </>
           }
-      {/* <div className="myservices">
-        <div className="contents">
-          {books.map((book,index) => {
-            return (
-              <div className="main_displayy" key={index}>
-                <div className="card_component">
-                  <div className="services_data">
-                    <img className='images' src={`${book.url}`} />
-                  </div>
-                  <div className="service_name">{book.bname}</div>
-                  <div className="author">{book.author}</div>
-                  <div className="card_content">
-                    {book.desc}
-                  </div>
-                  <button onClick={() => handlewishlist(book.bid)}>Add to Wishlist +</button>
-                  <input className='inps' type="number" placeholder="Issue for (in days)" onChange={(e) => setDays(e.target.value)} />
-                  <button  onClick={() => handleissue(book.bid,book.rent,book.bname)} >Issue</button>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </div> */}
     </div>
 }
     </>

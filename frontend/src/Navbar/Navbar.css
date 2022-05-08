@@ -1,22 +1,81 @@
 .main {
-    height: 5vh;
-    color: white;
-    background-color: #101522;
-    padding-top: 10px;
-    margin-top: -7.5px;
-    font-size: 1.4rem;
+    background: #1D1A54;
+    height: 80px;
     display: flex;
     justify-content: center;
-    /* background-color: rgb(255, 255, 255); */
-    padding-top: 25px;
-    padding-bottom: 18px;
-    font-weight: 600;
-    /* font-style: bold; */
-    /* color: #0467FB; */
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index:1;
+    width:100%;
+    max-width:1300px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-right:50px;
+    padding-left:50px;
+}
+.nav-logo {
+    color: #fff;
+    justify-self: flex-start;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+.nav-icon {
+  margin-right: 0.5rem;
+}
+.Mobile-Icon { 
+  display: none;
 }
 .ss{
+    color: #fff;
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    color: white;
+    padding: 0.5rem 1rem;
+    height: 100%;
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+.nav-menuu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+.nav-item {
+    height: 80px;
+    border-bottom: 2px solid transparent;
+}
+.nav-item:hover {
+    border-bottom: 2px solid #4b59f7;
+}
+.Navbtnlink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 16px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+}
+#item-1{
+  display: block;
 }
 .left-logo{
     float: left;
@@ -29,79 +88,64 @@
     width: 1em;
     height: 1em;
 }
-.nav-items{
-    display: flex;
-    float: right;
-    /* width: 10%; */
-}
 .item {
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 3em;
+    width: 3.2em;
     cursor: pointer;
 }
-#item-1:hover {
+/* #ss1 {
+    margin-right: 20px;
+} */
+/* #item-4:hover {
     margin-bottom: -5px;
     border-bottom: 4px solid #4b59f7;
-}
-#item-3:hover {
-    margin-bottom: -5px;
-    border-bottom: 4px solid #4b59f7;
-}
-#item-4:hover {
-    margin-bottom: -5px;
-    border-bottom: 4px solid #4b59f7;
-}
+} */
 #item-45{
     color: white;
-    background-color: #4b59f7;
+    background-color: #9F9FED;
     font-size: 1.25rem;
     width: 5em;
     height: 2em;
     border: none;
     border-radius: 5px;
-    margin-top: -17px;
-    padding-top: 2px;
     text-align: center;
     /* padding-bottom: -10px; */
 }
 #item-45:hover {
-    background-color: #0467FB;
+   color : #1D1A54;
+    background-color: white;
 }
 #item-46{
     color: white;
-    background-color: #4b59f7;
+    background-color: #9F9FED;
     font-size: 1.2rem;
     width: 5em;
     height: 2em;
     border: none;
     border-radius: 5px;
-    margin-top: -17px;
-    padding-top: 2px;
     text-align: center;
 }
 #item-46:hover {
-    background-color: #0467FB;
+  color : #1D1A54;
+  background-color: white;
 }
 #item-5 {
     color: white;
     border: none;
-    background-color: #4b59f7;
+    background-color: #9F9FED;
     font-size: 1.25rem;
     width: 5.5em;
     height: 2em;
     border-radius: 5px;
-    margin-top: -17px;
-    padding-top: 2px;
     text-align: center;
 }
 #item-5:hover {
-    background-color: #0467FB;
+  color : #1D1A54;
+  background-color: white;
 }
 .dropdown {
     /* position: relative; */
     display: grid;
-    margin-top: 45px;
+    margin-top: 22px;
     animation: growDown 400ms ease-in-out forwards;
     transform-origin: top center;
   }
@@ -151,3 +195,108 @@
   
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
+
+  @media screen and (max-width: 960px) {
+    .navbar-container{
+        width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+      .Mobile-Icon{
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+  }
+
+  @media screen and (max-width: 960px) {
+      .nav-menu{
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        height: 90vh;
+        position: absolute;
+        /* top: 80px; */
+        opacity: 1;
+        transition: all 0.5s ease;
+        left: 0;
+        /* left: ${({ click }) => (click ? 0 : '-100%')}; */
+        background: #101522;
+      }
+  }
+  @media screen and (max-width: 960px) {
+      .nav-menuu{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        top: 80px;
+        opacity: 1;
+        transition: all 0.5s ease;
+        left: -100%;
+        /* left: ${({ click }) => (click ? 0 : '-100%')}; */
+        background: #101522;
+      }
+  }
+  @media screen and (max-width: 960px) {
+    .nav-item{
+        width: 100%;
+    }
+       .nav-item:hover {
+         border: none;
+    }
+  }
+  @media screen and (max-width: 960px) {
+    .ss{
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+    }
+    .ss:hover {
+      color: #4b59f7;
+      transition: all 0.3s ease;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 120px;
+        margin-left: 60px;
+      }
+  }
+  @media screen and (max-width: 960px) {
+      .Mobile-Icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 60%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: white;
+      }
+  }
+
+  @media screen and (max-width:957px){
+    .nav-menu {
+      width: 95%;
+      height: 17vh;
+      top: 80px;
+    }
+    .nav-menuu{
+      width: 95%;
+      height: 17vh;
+      top: 80px;
+    }
+  }

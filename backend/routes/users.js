@@ -10,10 +10,10 @@ const { authUser, authRole } = require('../basicAuth');
 router.post('/register', async (req, res) => {
     try {
         //Get the input
-        const { email, password ,role} = req.body;
+        const { name, email, gender, password ,role} = req.body;
 
         //Validating the fields entered
-        if (!(email && password && role)) {
+        if (!(email && password && role && name && gender)) {
             res.status(400).json({ message: "All inputs are required" });
         }
         //Checking if user already exists
@@ -38,6 +38,8 @@ router.post('/register', async (req, res) => {
         );
 
         user.token = token;
+        user.name = name;
+        user.gender = gender;
         user.role=role;
         user.save();
         res.status(201).json({ message: "User successfully registered" });
@@ -54,7 +56,7 @@ router.post('/login', async (req, res) => {
     try {
         // Get user input
 
-        const { email, password,role} = req.body;
+        const { email,password,role} = req.body;
 
         // Validate user input
         if (!(email && password && role)) {

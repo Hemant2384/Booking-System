@@ -1,12 +1,14 @@
 .User-details {
     margin-top: 70px;
+    /* background-color: #f7f8fc; */
 }
 .my-wishlist1 {
     display: grid;
-    grid-template-columns: repeat(5, auto); 
-    margin-left: 80px;
+    grid-template-columns: repeat(3, auto); 
+    margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow: hidden;
     gap: 25px;
     /* box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25); */
     padding: 40px 40px;
@@ -18,10 +20,38 @@
     font-size: 1.5rem;
     border-radius: 5px;
     /* border: unset; */
-    height: 3em;
-    padding-left: 25px;
-    padding-top: 25px;
+    width: 22em;
+    height: 19.9em;
     box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+    /* background: radial-gradient(#f588d8, #c0a3e5); */
+    /* color: #8888; */
+}
+.cell1:hover{
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+}
+.cell1-image {
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+.cell1-image img {
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.cell1-id {
+    margin-bottom: 5px;
+}
+.cell1-id p {
+  color: #1c2237;
+  padding-left: 25px;
+  margin-top: 5px;
+}
+.cell1-name {
+    margin-bottom: 5px;
 }
 .cell1 button {
     display: block;
@@ -60,7 +90,7 @@
  
 .books-issued {
     display: grid;
-    grid-template-columns: repeat(4, auto); 
+    grid-template-columns: repeat(3, auto); 
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 20px;
@@ -68,16 +98,27 @@
     gap: 14px;
 }
 .cell2 {
-    border: 3px solid #4b59f7;
+    /* border: 3px solid #4b59f7; */
     font-size: 1.5rem;
     border-radius: 10px;
-    height: 10em;
+    height: 24em;
+    background-color: #fff;
+    border-radius: 10px;
+    /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); */
+    overflow: hidden;
     padding-left: 10px;
+    padding-right: 10px;
     padding-top: 5px;
+    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+}
+.cell2:hover{
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
 }
 .cell2 button {
     display: block;
-    margin-top: -70px;
+    /* margin-top: -70px; */
     float: right;
     margin-right: 20px;
     width: 7em;
@@ -89,3 +130,109 @@
     cursor: pointer;
 }
 
+
+@media screen and (max-width : 988px) {
+    .my-wishlist1 {
+        justify-content: center;
+        grid-template-columns: repeat(1, auto); 
+    }
+        .cell1 {
+        width: 18em;
+        height: 17em;
+    }
+    .cell1 p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .cell1 button {
+        width: 5.5em;
+        height: 2.5em;
+        margin-top: 1.5em;
+    }
+    .cell1-image img {
+        width: 30%;
+        height: 30%;
+    }
+}
+@media screen and ((max-width : 1132px) and (min-width : 989px)) {
+    .my-wishlist1 {
+        margin-left: 2em;
+        grid-template-columns: repeat(2, auto); 
+    }
+        .cell1 {
+        width: 18em;
+        height: 17em;
+    }
+    .cell1 p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .cell1 button {
+        width: 5.5em;
+        height: 2.5em;
+        margin-top: 1.5em;
+    }
+    .cell1-image img {
+        width: 30%;
+        height: 30%;
+    }
+}
+@media screen and ((max-width : 1295px) and (min-width : 1133px)) {
+    .my-wishlist1 {
+        grid-template-columns: repeat(2, auto); 
+        margin-left: 5em;
+    }
+    .cell1 {
+        width: 18em;
+        height: 17em;
+    }
+    .cell1 p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .cell1 button {
+        width: 5.5em;
+        height: 2.5em;
+        margin-top: 1.5em;
+    }
+    .cell1-image img {
+        width: 30%;
+        height: 30%;
+    }
+}
+@media screen and ((max-width : 1430px) and (min-width : 1295px)) {
+    .cell1 {
+        width: 16em;
+        height: 13.9em;
+    }
+    .cell1 p {
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .cell1 button {
+        width: 5.5em;
+        height: 2.5em;
+        margin-top: 1.5em;
+    }
+    .cell1-image img {
+        width: 30%;
+        height: 30%;
+    }
+}
+@media screen and ((max-width : 1707px) and (min-width : 1431px)) {
+    .cell1 {
+        width: 18em;
+        height: 19.5em;
+    }
+    .cell1 {
+        width: 18em;
+        height: 19.5em;
+    }
+    .cell1 p {
+        font-size: 20px;
+    }
+    .cell1 button {
+        width: 5.5em;
+        height: 2.5em;
+    }
+}

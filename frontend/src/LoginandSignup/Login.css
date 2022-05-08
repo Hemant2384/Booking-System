@@ -10,6 +10,7 @@
     border-radius: 5px;
     justify-content: center;
     top: 80px;
+    margin-bottom: 20em;
 }
 .heading {
     text-align: center;
@@ -35,7 +36,7 @@
     margin-bottom: 15px;
     border-radius: 4px;
     outline-color: #4b59f7;
-    font-size: 14px;
+    font-size: 1.4rem;
     background-color: rgb(255, 255, 255);
     box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
@@ -45,12 +46,19 @@
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px;
 }
+.alert {
+    color: red;
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-left: 5px;
+    font-family:sans-serif;
+}
 .Login > form label {
     display: flex;
     margin-top: 10px;
-    margin-bottom: 10px;
-    color: gray;
-    font-size: 1.65rem;
+    margin-bottom: 5px;
+    /* color: gray; */
+    font-size: 1.35rem;
 }
 select {
     -webkit-appearance: none;
@@ -76,10 +84,84 @@ select {
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: #4b59f7;
+    background-color: #1D1A54;
     cursor: pointer;
+    margin-bottom: 9px;
 }
 .Login > form button:hover {
     font-size: 1.41rem;
-    background-color: #0467FB;
+    background-color: #4b59f7;
+}
+.small {
+    text-align: center;
+}
+
+@media screen and (max-width:407px) {
+    .Login > form {
+        width: 14em;
+    }
+
+    .Login > form > input {
+        width: 175px;
+        font-size: 0.8rem;
+    }   
+    .Login > form label {
+        font-size: 1.15rem;
+    }
+    .Login > form select {
+        width: 229px ;
+    }
+    .Login > form button {
+        width: 229px ;
+    }
+    .small {
+        font-size: 0.8rem;
+        /* font-weight: 600; */
+    }
+}
+@media screen and ((max-width:408px) and (min-width:460px)) {
+    .Login > form {
+        width: 17em;
+    }
+
+    .Login > form > input {
+        width: 223px;
+        font-size: 1rem;
+    }   
+    .Login > form label {
+        font-size: 1.15rem;
+    }
+    .Login > form select {
+        width: 273px ;
+    }
+    .Login > form button {
+        width: 273px ;
+    }
+    .small {
+        font-size: 1rem;
+        /* font-weight: 600; */
+    }
+}
+@media screen and ((min-width:464px) and (max-width:570px)) {
+
+    .Login > form {
+        width: 22em;
+    }
+
+    .Login > form > input {
+        width: 298px;
+    }   
+    .Login > form label {
+        font-size: 1.15rem;
+    }
+    .Login > form select {
+        width: 349px ;
+    }
+    .Login > form button {
+        width: 349px ;
+    }
+    .small {
+        font-size: 1rem;
+        /* font-weight: 600; */
+    }
 }

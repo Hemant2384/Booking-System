@@ -7,9 +7,10 @@ const Admin = ({role,email}) => {
     // useEffect(() => {
         
     // },[])
-    const[books,setBooks] = useState([])
+    const[books,setBooks] = useState([]) // to view issue list
     const[view,setView]=useState(false)
     // const[vieww,setVieww]=useState(false)
+    const[issues,setIssues] = useState(false);
     const[users,setUsers] = useState([])
     const[add,setAdd] = useState(false)
     const[bid,setBid] = useState(0);
@@ -50,6 +51,18 @@ const Admin = ({role,email}) => {
         setAuthor("");
         setUrl("");
         setDesc("");
+    }
+
+    const handleviewissue = (email) => {
+        setIssues(!issues)
+        axios
+        .post("http://localhost:5000/issue", {
+          email,
+        })
+        .then((res) => {
+          // console.log(res.data);
+          setBooks(res.data);
+        });
     }
 
 
@@ -103,11 +116,10 @@ const Admin = ({role,email}) => {
                <>
                 {
                 users.map((user,index) => (
-                    <>
-                    <div className='indusers'>{user.email} {user.role}
-                    <button className='btn-23' key={index}>View issues</button>
+                    <div className='indusers' key={index}>
+                        <p>Email - {user.email}</p>
+                        <p>Role - {user.role}</p>
                     </div>
-                    </>
                     ))
                 }
                 </>

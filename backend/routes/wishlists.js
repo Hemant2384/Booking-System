@@ -21,7 +21,14 @@ router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
 router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
     try {
         const query = { email: req.body.email};
-        const update = { $push: {  wlist:{bid:(req.params.id) }}};
+        const detail = {
+            bid: Number(req.params.id),
+            bname: req.body.wlist.bname,
+            author: req.body.wlist.author,
+            url: req.body.wlist.url
+        }
+        // console.log(req.body.wlist.bname);
+        const update = { $push: { wlist : detail}};
         const options = { upsert: true };
         await Wishlist.updateOne(query, update, options);
         // res.json({"message":"Added"})

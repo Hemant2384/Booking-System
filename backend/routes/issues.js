@@ -41,7 +41,10 @@ router.post('/issue/:id', async (req, res) => {
             bid: Number(req.params.id),
             doi: date,
             period: req.body.period,
-            amount: req.body.amount
+            amount: req.body.amount,
+            bname: req.body.bname,
+            author: req.body.author,
+            url: req.body.url
         }
         const query = { email: req.body.email };
         const update = { $push: { issue_details_list: detail } };
