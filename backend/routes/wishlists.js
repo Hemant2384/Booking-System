@@ -4,7 +4,7 @@ const Wishlist = require('../model/wishlist');
 const { authUser, authRole } = require('../basicAuth');
 
 //wishlist array for an email
-router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
+router.post('/wishlist', authUser, authRole('basic'), async (req, res) => {//
     try {
         const wishlist_obj = await Wishlist.findOne({
             email: req.body.email//need to be edited
@@ -18,7 +18,7 @@ router.post('/wishlist', async (req, res) => {// authUser, authRole('basic'),
 });
 
 //add book to wishlist
-router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
+router.post('/wishlist/:id',authUser, authRole('basic'), async (req, res) => {//
     try {
         const query = { email: req.body.email};
         const detail = {
@@ -52,7 +52,7 @@ router.post('/wishlist/:id', async (req, res) => {//authUser, authRole('basic'),
 
 //remove from wishlist
 //authUser, authRole('basic')
-router.post('/wishlist/remove/:id',  async (req, res) => {
+router.post('/wishlist/remove/:id',authUser, authRole('basic'),  async (req, res) => {
     try {
         await Wishlist.updateOne(
             { email: req.body.email },

@@ -26,7 +26,7 @@ router.get('/book/:id', async (req, res) => {
 });
 
 
-router.post('/book/add',  async (req, res) => { //authUser, authRole('admin'),
+router.post('/book/add',authUser, authRole('admin'),  async (req, res) => { //authUser, authRole('admin'),
     try {
         const { bid, bname, author, url, desc, rent ,isIssued} = req.body;
 

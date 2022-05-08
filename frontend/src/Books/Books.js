@@ -1,7 +1,12 @@
 import React, { useEffect, useState,useContext, useCallback } from 'react'
+<<<<<<< HEAD
 import { IContext, IssueContext, TotalIssueContext, TotalWishContext, UserContext, WContext, WishContext } from '../App'
 import {BiSearch,BiBookAdd,BiBookHeart} from 'react-icons/bi'
 import {AiFillHeart,AiOutlineHeart} from 'react-icons/ai'
+=======
+import { IssueContext, UserContext, WishContext,RoleContext } from '../App'
+import {BiSearch} from 'react-icons/bi'
+>>>>>>> 70f9ca4993d332b514da6938123c14a44cc36165
 import ReactLoading from 'react-loading';
 import axios from 'axios'
 // import { Tooltip } from '@mui/material'
@@ -29,6 +34,7 @@ const Books = () => {
     const { wstate, wdispatch } = useContext(WContext);
     const { istate, idispatch } = useContext(IContext);
     const { issuestate, issuedispatch } = useContext(IssueContext);
+    const { rolestate, roledispatch } = useContext(RoleContext);
     const[filtereddata,setFiltereddata] = useState([]);
     const[days,setDays] = useState(0)
     const [load, setload] = useState(false)
@@ -42,6 +48,7 @@ const Books = () => {
     useEffect(() => {
       axios.post('http://localhost:5000/wishlist',{
         email:emailstate,
+<<<<<<< HEAD
       }).then((res) => totalwishdispatch({type:"WISHLIST",payload:res.data}))
    }, []); 
     useEffect(() => {
@@ -49,6 +56,11 @@ const Books = () => {
         email:emailstate,
       }).then((res) => totalissuedispatch({type:"ISSUES",payload:res.data}))
    }, []); 
+=======
+        role:rolestate
+      }).then((res) => wishdispatch({type:"WISH",payload:res.data}))
+}, []);
+>>>>>>> 70f9ca4993d332b514da6938123c14a44cc36165
 
     useEffect(() => {
       setTimeout(() => {
@@ -95,6 +107,7 @@ const Books = () => {
     console.log(name);
       axios.post(`http://localhost:5000/wishlist/${id}`,{
         email : emailstate,
+        role:rolestate,
         wlist : {
           bname : name,
           author : author,
@@ -144,6 +157,7 @@ const Books = () => {
     }
       axios.post(`http://localhost:5000/issue/${id}`,{
         email : emailstate,
+        role:rolestate,
         period : days,
         amount : days*rent,
         bname : name,
@@ -166,6 +180,7 @@ const Books = () => {
       })
       axios.post('http://localhost:5000/activity',{
         email : emailstate,
+        role:rolestate,
         bid : id,
         bname : name
       }).then((res) => {
