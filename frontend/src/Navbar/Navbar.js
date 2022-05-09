@@ -2,7 +2,7 @@ import React, { useEffect, useState,useContext } from 'react'
 import {FaBars,FaTimes} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-import { AppContext,UserContext } from '../App';
+import { AppContext,UserContext, UserNameContext } from '../App';
 import {HiOutlineLibrary} from 'react-icons/hi'
 import { toast } from 'react-toastify';
 import moment from 'moment'
@@ -19,6 +19,8 @@ const Navbar = () => {
   const[activity,setActivity] = useState([])
   const { state, dispatch } = useContext(AppContext);
   const { emailstate, emaildispatch } = useContext(UserContext);
+  
+  const {ustate,udispatch} = useContext(UserNameContext)
 
 
   const navigate = useNavigate();
@@ -103,7 +105,8 @@ const Navbar = () => {
       <nav className='main'>
       <div className='navbar-container'>
       <Link to='' className="nav-logo">
-        GreySense <HiOutlineLibrary className='nav-icon'/>
+        <HiOutlineLibrary className='nav-icon'/>
+        GreySense
       </Link>
     <div className='Mobile-Icon' onClick={handleClick}>
           {click ? <FaTimes /> : <FaBars />}
@@ -114,7 +117,7 @@ const Navbar = () => {
           {
             activity.map((item,index) => (
               <li className='dropdown-content' key={index}>
-                <span>{item.email==emailstate ? <>You</> : <>{item.email}</>} issued the book {item.bname}</span>
+                <span>{item.email==emailstate ? <>You</> : <>{item.name}</>} issued the book {item.bname}</span>
                 <p>{moment(item.date).startOf('hour').fromNow()}</p>
               </li>
             ))
@@ -123,7 +126,7 @@ const Navbar = () => {
         </>)}
         <li className="nav-item" id='item-1' onMouseEnter={() => handleenter()} onMouseLeave={() => setDrop(false)}>
           <Link className='ss'  to=''> Recent </Link></li>
-        {state && <li className="nav-item" id='item-2'><Link className='ss' id='ss1' to='/profile'>{emailstate}</Link></li>}
+        {state && <li className="nav-item" id='item-2'><Link className='ss' id='ss1' to='/profile'>{ustate}</Link></li>}
        <li
        onMouseLeave={onMouseleave} 
         className="nav-item" id='item-3'>
@@ -152,7 +155,8 @@ const Navbar = () => {
       <nav className='main'>
       <div className='navbar-container'>
       <Link to='' className="nav-logo">
-        National Library <HiOutlineLibrary className='nav-icon'/>
+        <HiOutlineLibrary className='nav-icon'/>
+        GreySense
       </Link>
     <div className='Mobile-Icon' onClick={handleClick}>
           {click ? <FaTimes /> : <FaBars />}
@@ -173,7 +177,7 @@ const Navbar = () => {
         <li className="nav-item" id='item-1' onMouseEnter={() => handleenter()} onMouseLeave={() => setDrop(false)}>
           <Link className='ss' id='item' to=''> Recent </Link>
         </li>
-        {state && <li className="nav-item" id='item-2'><Link className='ss' id='ss1' to='/profile'>{emailstate}</Link></li>}
+        {state && <li className="nav-item" id='item-2'><Link className='ss' id='ss1' to='/profile'>{ustate}</Link></li>}
        <li
        onMouseLeave={onMouseleave} 
         className="nav-item" id='item-3'>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import ReactLoading from "react-loading";
-import { AppContext, RoleContext, UserContext } from "../App";
+import { AppContext, GenderContext, RoleContext, UserContext, UserNameContext } from "../App";
 import { usePromiseTracker } from "react-promise-tracker";
 import { trackPromise } from "react-promise-tracker";
 import { ToastContainer, toast } from "react-toastify";
@@ -14,6 +14,8 @@ const Login = () => {
   const { state, dispatch } = useContext(AppContext);
   const { emailstate, emaildispatch } = useContext(UserContext);
   const { rolestate, roledispatch } = useContext(RoleContext);
+  const {ustate,udispatch} = useContext(UserNameContext)
+  const {gstate,gdispatch} = useContext(GenderContext)
   const { promiseInProgress } = usePromiseTracker();
   // const[name,setName] = useState('');
   // const[loading,setLoadin
@@ -80,10 +82,12 @@ const Login = () => {
           role,
         })
         .then((res) => {
-          console.log(res.data);
+          console.log(res.data.user);
           dispatch({ type: "USER", payload: true });
-          emaildispatch({ type: "EMAIL", payload: email });
-          roledispatch({ type: "ROLE", payload: role });
+          emaildispatch({ type: "EMAIL", payload: res.data.user.email });
+          roledispatch({ type: "ROLE", payload: res.data.user.role });
+          gdispatch({ type: "GENDER", payload: res.data.user.gender });
+          udispatch({ type: "USERNAME", payload: res.data.user.name });
           // loggedin();
           loggedin('Succesfully logged in')
           navigate("/profile", {
@@ -112,15 +116,16 @@ const Login = () => {
     <>
       {promiseInProgress === true ? (
         <>
-          <ReactLoading
+          <div
+            className="item align-items-center top-50 "
+            style={{ marginLeft: "45%" , width:"100%",height:"100%"}}
+          >
+            <ReactLoading
             className="loader"
             type={"spinningBubbles"}
             color="#FFC107"
           />
-          <div
-            className="item align-items-center top-50 "
-            style={{ marginLeft: "45%" }}
-          ></div>
+          </div>
         </>
       ) : (
         <>

@@ -17,6 +17,7 @@ router.get('/activities', async (req, res) => {
 router.post('/activity', async (req, res) => {
     try {
         const activity_obj = {
+            name : req.body.name,
             email: req.body.email,
             bid: req.body.bid,
             bname: req.body.bname,

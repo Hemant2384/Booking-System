@@ -8,6 +8,8 @@ export const totalwishinitialState=[];
 export const totalissueinitialState=[];
 export const winitialState=[];
 export const iinitialState=[];
+export const uinitialState=[];
+export const ginitialState=[];
 
 export const userreducer = (state,action) =>{
     if(action.type==="USER"){
@@ -35,6 +37,18 @@ export const wishlishtreducer = (state,action) =>{
 }
 export const totalwishlishtreducer = (state,action) =>{
      if(action.type==="WISHLIST"){
+        return action.payload;
+    }
+    return state;
+}
+export const uuserreducer = (state,action) =>{
+     if(action.type==="USERNAME"){
+        return action.payload;
+    }
+    return state;
+}
+export const guserreducer = (state,action) =>{
+     if(action.type==="GENDER"){
         return action.payload;
     }
     return state;

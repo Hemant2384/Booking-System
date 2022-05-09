@@ -22,6 +22,7 @@ const Admin = ({ role, email }) => {
     const [rent, setRent] = useState(0);
     const [isIssued, setIsissued] = useState(false);
     const { rolestate, roledispatch } = useContext(RoleContext);
+    const[issues,setIssues] = useState([])
 
     const handlenewbook = () => {
         setAdd(!add)
@@ -76,9 +77,12 @@ const Admin = ({ role, email }) => {
 
     return (
         <div className="admin-main">
-            <span className='admin-head' >Admin {email}</span>
+            <span className='admin-headd' >Admin {email}</span>
+            <div className='btns'>
+            <button onClick={handlenewbook} className='btn1'>Add new book</button>
+            <button className='btn1' onClick={handleview}>View users</button>
+            </div>
             <div className="add_books">
-                <button onClick={handlenewbook} className='btn1'>Add new book</button>
                 {add &&
                     <form className='newbook' onSubmit={handlesub}>
                         <div className='mycontents'>
@@ -113,9 +117,9 @@ const Admin = ({ role, email }) => {
                     </form>
                 }
             </div>
-            <button className='btn1' onClick={handleview}>View users</button>
             <div className="views-users">
-                {
+                {view && <>
+                    {
                 users.map((user,index) => (
                     <div className='indusers' key={index}>
                         <p>Email - {user.email}</p>
@@ -123,6 +127,7 @@ const Admin = ({ role, email }) => {
                     </div>
                     ))
                 }
+                </>}
             </div>
         </div>
     )

@@ -1,12 +1,7 @@
 import React, { useEffect, useState,useContext, useCallback } from 'react'
-<<<<<<< HEAD
-import { IContext, IssueContext, TotalIssueContext, TotalWishContext, UserContext, WContext, WishContext } from '../App'
+import { IContext, IssueContext, RoleContext, TotalIssueContext, TotalWishContext, UserContext, UserNameContext, WContext, WishContext } from '../App'
 import {BiSearch,BiBookAdd,BiBookHeart} from 'react-icons/bi'
 import {AiFillHeart,AiOutlineHeart} from 'react-icons/ai'
-=======
-import { IssueContext, UserContext, WishContext,RoleContext } from '../App'
-import {BiSearch} from 'react-icons/bi'
->>>>>>> 70f9ca4993d332b514da6938123c14a44cc36165
 import ReactLoading from 'react-loading';
 import axios from 'axios'
 // import { Tooltip } from '@mui/material'
@@ -33,6 +28,7 @@ const Books = () => {
     const { totalissuestate, totalissuedispatch } = useContext(TotalIssueContext);
     const { wstate, wdispatch } = useContext(WContext);
     const { istate, idispatch } = useContext(IContext);
+    const {ustate,udispatch} = useContext(UserNameContext)
     const { issuestate, issuedispatch } = useContext(IssueContext);
     const { rolestate, roledispatch } = useContext(RoleContext);
     const[filtereddata,setFiltereddata] = useState([]);
@@ -48,7 +44,7 @@ const Books = () => {
     useEffect(() => {
       axios.post('http://localhost:5000/wishlist',{
         email:emailstate,
-<<<<<<< HEAD
+        role:rolestate
       }).then((res) => totalwishdispatch({type:"WISHLIST",payload:res.data}))
    }, []); 
     useEffect(() => {
@@ -56,11 +52,6 @@ const Books = () => {
         email:emailstate,
       }).then((res) => totalissuedispatch({type:"ISSUES",payload:res.data}))
    }, []); 
-=======
-        role:rolestate
-      }).then((res) => wishdispatch({type:"WISH",payload:res.data}))
-}, []);
->>>>>>> 70f9ca4993d332b514da6938123c14a44cc36165
 
     useEffect(() => {
       setTimeout(() => {
@@ -181,6 +172,7 @@ const Books = () => {
       axios.post('http://localhost:5000/activity',{
         email : emailstate,
         role:rolestate,
+        name : ustate,
         bid : id,
         bname : name
       }).then((res) => {
@@ -210,7 +202,10 @@ const Books = () => {
     <>
     { !load ?
     <>
-    <ReactLoading className='loader' type={'spinningBubbles'} color="#FFC107"/>
+    <div className='loader'>
+      ss
+    <ReactLoading type={'spinningBubbles'} color="#1D1A54"/>
+    </div>
     </> :
     <div className="mainn">
       <div className="main-heading">

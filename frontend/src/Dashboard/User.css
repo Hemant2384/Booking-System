@@ -2,7 +2,13 @@
     margin-top: 70px;
     /* background-color: #f7f8fc; */
 }
-.my-wishlist1 {
+.my-wishlist::before{
+    content: "";
+}
+.my-wishlist::after{
+    display: block;
+}
+.my-wishlist1{
     display: grid;
     grid-template-columns: repeat(3, auto); 
     margin-left: 20px;
@@ -13,15 +19,23 @@
     /* box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25); */
     padding: 40px 40px;
 }
-
+.avatar{
+    /* margin: 0 auto; */
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+.avatar img {
+    width: 10%;
+    height: 10%;
+}
 
 .cell1 {
     /* border: 3px solid #4b59f7; */
     font-size: 1.5rem;
-    border-radius: 5px;
+    border-radius: 15px;
     /* border: unset; */
-    width: 22em;
-    height: 19.9em;
+    width: 18em;
+    height: 18em;
     box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
     transition: all 0.2s;
     /* background: radial-gradient(#f588d8, #c0a3e5); */
@@ -32,8 +46,9 @@
     transform: scale(1.01);
 }
 .cell1-image {
-    text-align: center;
-    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
 }
 .cell1-image img {
     width: auto;
@@ -41,14 +56,29 @@
     text-align: center;
     margin-top: 5px;
 }
-
+.buttons {
+    margin-top: 2em;
+    width: auto;
+    text-align: center;
+}
+.del-icon {
+    margin-top: 10px;
+}
+.del-icon > svg {
+    float: right;
+    width: 7%;
+    height: 7%;
+    margin-right: 5px;   
+    cursor: pointer; 
+}
 .cell1-id {
     margin-bottom: 5px;
 }
 .cell1-id p {
   color: #1c2237;
-  padding-left: 25px;
+  /* padding-left: 25px; */
   margin-top: 5px;
+  text-align: center;
 }
 .cell1-name {
     margin-bottom: 5px;
@@ -73,12 +103,10 @@
     margin-left: 20px;
     /* width: 10rem;
     height: 3rem; */
-    background-size: 300% 300%;
     font-size: 1.25rem;
     color: white;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-    background-image: linear-gradient(to right, #895cf2 0%, #ffabf4 50%, #895cf2 100%);
+    background-color: #1D1A54;
     transition: 0.5s;
     padding: 1em 3em;
     border-radius: 6px;
@@ -88,22 +116,101 @@
     background-position: right center;
 }
  
-.books-issued {
-    display: grid;
-    grid-template-columns: repeat(3, auto); 
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    gap: 14px;
+.main-body {
+    display: flex;
+    justify-content: center;
 }
+.admin-head {
+    /* display: flex; */
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 4rem;
+    color: #32325d;
+    
+}
+.count{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+.total1 {
+    margin: 0 auto;
+    font-size: 2.5em;
+    text-align: center;
+    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+    width: 8em;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.total1 p{
+    margin-top: 0.5em;
+    font-size: 5rem;
+}
+.total {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2.5em;
+    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+    width: 10em;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.total p{
+    margin-top: 0.5em;
+    font-size: 5rem;
+}
+.admin-head {
+    margin-top: 40px;
+     display: grid;
+     place-content: center;
+     text-align: center;
+     font-size: 70px;
+     position: relative;
+     font-family: 'Source Code Pro', monospace;
+     position: relative;
+  }
+  .admin-head::before,
+  .admin-head::after {
+   content: ' ';
+   position:absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left:38%;
+  } 
+  .admin-head::before {
+    background: var(--bg-color);
+    animation: typewriter 2s steps(10) forwards;
+  }
+  .admin-head::after{
+    width: 0.125em;
+    background: black;
+    animation : typewriter 2s steps(10) forwards, blinks 750ms steps(10) infinite;
+  }  
+  @keyframes typewriter {
+    to{
+      left: 61%;
+    }
+  } 
+  @keyframes blinks {
+    to{
+      background: transparent;
+    }
+  }
 .cell2 {
     /* border: 3px solid #4b59f7; */
     font-size: 1.5rem;
     border-radius: 10px;
-    height: 24em;
+    height: 20em;
+    width: 18em;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 15px;
     /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); */
     overflow: hidden;
     padding-left: 10px;

@@ -2,23 +2,23 @@
     background-color: #101522;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 2em;
 }
 .instructions_text{
     color: #fff;
     text-align: center;
-    font-size: 60px;
-    margin-bottom: 25px;
+    font-size: 6em;
+    margin-bottom: 0.9em;
 }
 .instruction_item {
-    margin-bottom: -28px;
+    margin-bottom: 0.9em;
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
 }
 .instruction_item svg {
-    height: 65px;
-    width: 65px;
+    height: 4em;
+    width: 4em;
 }
 .instruction_item svg:nth-child(1) {
     color: lightblue;
@@ -42,7 +42,7 @@
 .t_text p {
     color: #fff;
     margin-top: 20px;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 .t_text p:nth-child(1) {
     padding-left: 35px;
@@ -68,16 +68,7 @@
 .arrow_icon2 {
     height: 10px;
     width: 100px;
-    margin-left: 200px;
-  background-image: linear-gradient(90deg, transparent, transparent 50%, #fff 50%, #fff 100%), linear-gradient(90deg, #69d2e7, #a7dbd8, #e0e4cc, #f38630, #fa6900);
-  background-size: 20px 3px, 100% 3px;
-  border: none;
-}
-.arrow_icon3 {
-    height: 10px;
-    width: 100px;
-    margin-left: 50px;
-    margin-right: 300px;
+    margin-left: 230px;
   background-image: linear-gradient(90deg, transparent, transparent 50%, #fff 50%, #fff 100%), linear-gradient(90deg, #69d2e7, #a7dbd8, #e0e4cc, #f38630, #fa6900);
   background-size: 20px 3px, 100% 3px;
   border: none;

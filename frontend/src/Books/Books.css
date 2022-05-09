@@ -5,7 +5,7 @@ E9D5DA */
 .mainn{
     /* background-color: #101522;
      */
-     background: #FAF3FC;
+     background: #101522;
     animation: fadeImg 0.5s;
 }
 /* ::selection {
@@ -35,7 +35,7 @@ E9D5DA */
     font-size: 40px;
     color: #fff;
     margin-bottom: 20px;
-    color: #1D1A54;
+    /* color: #1D1A54; */
 }
 .main-heading > p {
     color: #1D1A54;
@@ -80,6 +80,11 @@ E9D5DA */
     box-shadow: 0 4px 7px 0 #1D1A54, 0 4px 8px 0 #1D1A54;
     border-radius: 10px;
 }
+.loader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20em;
+}
 .contents {
     display: grid;
     grid-template-columns: repeat(4, calc(25% - 12.667px));
@@ -92,8 +97,8 @@ E9D5DA */
     padding: 20px 20px;
     width: 350px;
     height: 580px;
-    background-color: #28264C;
-    color: white;
+    background-color: white;
+    color: 101522;
     border-radius : 10px;
     /* box-shadow: #1D1A54 10px 10px 10px 10px ; */
     box-shadow: 0 4px 7px 0 #1D1A54, 0 4px 8px 0 #1D1A54;
@@ -164,7 +169,7 @@ E9D5DA */
     display: block;
     border: unset;
     border-radius: 4px;
-      background-color: #D4C1EC;
+      background-color: #1D1A54;
       box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                   rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 

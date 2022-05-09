@@ -6,7 +6,7 @@ import Login from './LoginandSignup/Login';
 // import {Switch} from 'react-router'
 import Signup from './LoginandSignup/Signup';
 import Profile from './Dashboard/Profile';
-import { initialState,userreducer,emailreducer,wishlishtreducer, wishinitialState, emailinitialState, issuereducer, issueinitialState, roleinitialState,rolereducer,bookreducer ,bookinitialState, totalwishinitialState, totalwishlishtreducer, totalissueinitialState, totalissuetreducer, wreducer, winitialState, ireducer, iinitialState} from './reducer/UseReducer';
+import { initialState,userreducer,emailreducer,wishlishtreducer, wishinitialState, emailinitialState, issuereducer, issueinitialState, roleinitialState,rolereducer,bookreducer ,bookinitialState, totalwishinitialState, totalwishlishtreducer, totalissueinitialState, totalissuetreducer, wreducer, winitialState, ireducer, iinitialState, ginitialState, guserreducer, uuserreducer, uinitialState} from './reducer/UseReducer';
 import Books from './Books/Books';
 import './App.css'
 import Footer from './Footer/Footer';
@@ -16,6 +16,9 @@ import GlobalStyle from './globalStyles';
 
 export const AppContext = createContext(false);
 export const UserContext = createContext('');
+export const NameContext = createContext('');
+export const GenderContext = createContext('');
+export const UserNameContext = createContext('');
 export const WishContext = createContext([]);
 export const IssueContext = createContext([]);
 export const RoleContext = createContext('');
@@ -28,6 +31,8 @@ export const TotalIssueContext = createContext([]);
 const App = () => {
 
   const [state,dispatch] = useReducer(userreducer,initialState)
+  const [ustate,udispatch] = useReducer(uuserreducer,uinitialState)
+  const [gstate,gdispatch] = useReducer(guserreducer,ginitialState)
   const [emailstate,emaildispatch] = useReducer(emailreducer,emailinitialState)
   const [wishstate,wishdispatch] = useReducer(wishlishtreducer,wishinitialState)
   const [issuestate,issuedispatch] = useReducer(issuereducer,issueinitialState)
@@ -52,6 +57,8 @@ const App = () => {
     <TotalIssueContext.Provider value={{totalissuestate,totalissuedispatch}}>
     <WContext.Provider value={{wstate,wdispatch}}>
     <IContext.Provider value={{istate,idispatch}}>
+    <UserNameContext.Provider value={{ustate,udispatch}}>
+    <GenderContext.Provider value={{gstate,gdispatch}}>
     <BrowserRouter>
     <Navbar/>
     <ScrollToTop/>
@@ -65,6 +72,8 @@ const App = () => {
     </Routes>
     <Footer/>
     </BrowserRouter>
+    </GenderContext.Provider>
+    </UserNameContext.Provider>
     </IContext.Provider>
     </WContext.Provider>
     </TotalIssueContext.Provider>

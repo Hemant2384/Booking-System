@@ -6,11 +6,18 @@ import Fade from 'react-reveal/Fade';
 
 const Contributors = () => {
   return (
+    <div className='maincontri'>
+    <div className='headd'>
+                TEAM
+            </div>
     <div className='contri'>
+        {/* <div className="contru-heading">
+            TEAM
+        </div> */}
         <Fade left>
         <div className='card'>
             <div className="side-bar">
-                <img className='contri-image' src='https://i.pravatar.cc/125'/>
+                <img className='contri-image' src={require('../images/hem1.jpg')}/>
                 <ul className='social-list'> 
                 <li className='social-item'><Link className='social-link' to=''><AiFillFacebook/></Link></li>
                 <li className='social-item'><Link className='social-link' to=''><AiFillGithub/></Link></li>
@@ -34,7 +41,7 @@ const Contributors = () => {
         <Fade right>
         <div className='card'>
             <div className="side-bar">
-                <img className='contri-image' src='https://i.pravatar.cc/125'/>
+                <img className='contri-image' src={require('../images/vp1.jpg')}/>
                 <ul className='social-list'> 
                 <li className='social-item'><Link className='social-link' to=''><AiFillFacebook/></Link></li>
                 <li className='social-item'><Link className='social-link' to=''><AiFillGithub/></Link></li>
@@ -55,6 +62,7 @@ const Contributors = () => {
             </div>
         </div>
         </Fade>
+    </div>
     </div>
   )
 }
