@@ -5,6 +5,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Signup.css'
+import Footer from '../Footer/Footer';
 
 const Signup = () => {
   const[name,setName] = useState('')
@@ -74,6 +75,7 @@ const Signup = () => {
   }
 
   return (
+    <>
     <div className='Signup'>
     <div className="heading-1">SIGNUP</div>
     <form onSubmit={handlesubmit}>
@@ -94,6 +96,8 @@ const Signup = () => {
     <p className='small'>Already Have a Account? <Link to='/login'>Log in</Link></p>
     </form>
 </div>
+<Footer/>
+</>
   )
 }
 

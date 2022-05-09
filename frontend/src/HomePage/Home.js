@@ -3,6 +3,7 @@ import { homeObjfour, homeObjone, homeObjthree, homeObjtwo } from './Data'
 import InfoSection from '../InfoSection/InfoSection' 
 import Landingpage from './Landing'
 import Contributors from './Contributors'
+import Footer from '../Footer/Footer'
 // import { useLocation } from 'react-router'
 
 
@@ -20,6 +21,7 @@ const Home = () => {
           <InfoSection {...homeObjfour}/> */}
           <Landingpage/>
           <Contributors/>
+          <Footer/>
         </>
     )
 }

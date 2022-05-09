@@ -167,7 +167,7 @@ const Navbar = () => {
           {
             activity.map((item,index) => (
               <div className='dropdown-content' key={index}>
-                <span>{item.email==emailstate ? <>You</> : <>{item.email}</>} issued the book {item.bname}</span>
+                <span>{item.email==emailstate ? <>You</> : <>{item.name}</>} issued the book {item.bname}</span>
                 <p>{moment(item.date).startOf('hour').fromNow()}</p>
               </div>
             ))

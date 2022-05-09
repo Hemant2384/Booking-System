@@ -9,7 +9,7 @@ import Profile from './Dashboard/Profile';
 import { initialState,userreducer,emailreducer,wishlishtreducer, wishinitialState, emailinitialState, issuereducer, issueinitialState, roleinitialState,rolereducer,bookreducer ,bookinitialState, totalwishinitialState, totalwishlishtreducer, totalissueinitialState, totalissuetreducer, wreducer, winitialState, ireducer, iinitialState, ginitialState, guserreducer, uuserreducer, uinitialState} from './reducer/UseReducer';
 import Books from './Books/Books';
 import './App.css'
-import Footer from './Footer/Footer';
+// import Footer from './Footer/Footer';
 import ScrollToTop from './Scrolltotop';
 import GlobalStyle from './globalStyles';
 
@@ -70,7 +70,6 @@ const App = () => {
       <Route path="/profile" element={<Profile/>}/>
       <Route path="/books" element={<Books/>}/>
     </Routes>
-    <Footer/>
     </BrowserRouter>
     </GenderContext.Provider>
     </UserNameContext.Provider>

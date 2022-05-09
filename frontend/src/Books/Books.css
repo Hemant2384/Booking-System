@@ -83,7 +83,6 @@ E9D5DA */
 .loader {
     display: flex;
     justify-content: center;
-    margin-bottom: 20em;
 }
 .contents {
     display: grid;

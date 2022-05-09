@@ -8,9 +8,11 @@ import {
 } from "../App";
 import { ToastContainer, toast } from "react-toastify";
 import { RiDeleteBinFill } from "react-icons/ri";
+import { IoReturnDownBackSharp } from "react-icons/io5";
 import Fade from 'react-reveal/Fade';
 import axios from "axios";
 import "./User.css";
+import { Link } from "react-router-dom";
 
 const User = ({ email }) => {
   const [tog, setTog] = useState(false);
@@ -160,7 +162,7 @@ const User = ({ email }) => {
       <span className="admin-head">Welcome {ustate}</span>
       <div className="count">
         <div className="total1">
-          Books in wishlisht
+          Books in wishlist
           <p>{wlist.length} </p> 
         </div>
         <div className="total">
@@ -173,7 +175,7 @@ const User = ({ email }) => {
             View wishlist
           </button>
           <button className="btn12" onClick={handleissue}>
-          View Books
+          View Issues
         </button>
       </div>
         <div className="my-wishlist">
@@ -183,7 +185,7 @@ const User = ({ email }) => {
                 {wlist.map((item, index) => (
                   <Fade top>
                   <div className="cell1" key={index}>
-                    <div className="del-icon">
+                    <div className="del-iconn">
                       <RiDeleteBinFill
                         onClick={() => handleremove(item.bid, index)}
                       />
@@ -192,6 +194,7 @@ const User = ({ email }) => {
                       <div className="cell1-image">
                         <img src={`${item.url}`} />
                       </div>
+                      <br></br>
                       <p>{item.bname}</p>
                       <p>{item.author}</p>
                     </div>
@@ -209,20 +212,24 @@ const User = ({ email }) => {
               {books.map((item, index) => (
                  <Fade top>
                 <div className="cell2" key={index}>
-                  <div className="del-icon">
-                    <RiDeleteBinFill
-                      onClick={() => handleremoveissue(item.bid, index)}
-                    />
-                  </div>
                   <div className="cell1-id">
                     <div className="cell1-image">
                       <img src={`${item.url}`} />
                     </div>
-                    <p>Date of Issue - {item.doi}</p>
-                    <p>{item.name}</p>
+                    <p>{item.bname}</p>
                     <p>{item.author}</p>
-                    <p>Duration - {item.period}</p>
-                    <p>Amount - {item.amount}</p>
+                    <br></br>
+                    <p><span className="leftitems">Date of Issue</span><span className="rightitems">{item.doi}</span></p>
+                    <p><span className="leftitems">Duration</span><span className="rightitems">{item.period}</span></p>
+                    <p><span className="leftitems">Amount</span><span className="rightitems">{item.amount}</span></p>
+                  </div>
+                  <div className="del-icon">
+                    <button onClick={() => handleremoveissue(item.bid, index)}>
+                      <IoReturnDownBackSharp
+                      color="white"
+                      className="delsvg"
+                    />
+                    </button>
                   </div>
                 </div>
                 </Fade>

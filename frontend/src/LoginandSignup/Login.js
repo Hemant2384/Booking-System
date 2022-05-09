@@ -7,6 +7,7 @@ import { AppContext, GenderContext, RoleContext, UserContext, UserNameContext } 
 import { usePromiseTracker } from "react-promise-tracker";
 import { trackPromise } from "react-promise-tracker";
 import { ToastContainer, toast } from "react-toastify";
+import Footer from '../Footer/Footer';
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
 
@@ -117,13 +118,12 @@ const Login = () => {
       {promiseInProgress === true ? (
         <>
           <div
-            className="item align-items-center top-50 "
-            style={{ marginLeft: "45%" , width:"100%",height:"100%"}}
-          >
+            className='loader'>
             <ReactLoading
+            width="10em" height="10em"
             className="loader"
-            type={"spinningBubbles"}
-            color="#FFC107"
+            type={"spin"}
+            color="#1D1A54"
           />
           </div>
         </>
@@ -170,6 +170,7 @@ const Login = () => {
               </p>
             </form>
           </div>
+          <Footer/>
         </>
       )}
     </>
